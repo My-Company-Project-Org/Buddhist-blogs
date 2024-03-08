@@ -12,7 +12,7 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  siteName: "Explorer",
+  siteName: "Bhwaya",
   description:
     "A minimal and lovely travel blog which shares experiences and citiest around the world!",
   currentlyAt: "Budapest",

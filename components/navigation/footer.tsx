@@ -63,7 +63,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               className="underline underline-offset-4"
               href="https://twitter.com/makrdev"
             >
-              @makrdev
+              @onezerohub
             </Link>
           </div>
         </div>
