@@ -51,7 +51,7 @@ export const generateMetadata = async ({
         "de-DE": `${process.env.NEXT_PUBLIC_SITE_URL}/de`,
       },
     },
-    /* Verification for Google Search Console */
+
     verification: {
       google: "4cGffAbC3ulh1YKxvgFrMxyGljs4w51U_vZx6f98GfI",
     },
