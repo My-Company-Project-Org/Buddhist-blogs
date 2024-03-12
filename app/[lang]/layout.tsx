@@ -53,7 +53,7 @@ export const generateMetadata = async ({
     },
     /* Verification for Google Search Console */
     verification: {
-      google: "OtqwDrZLV7iy8f2yLayVgO7Puz1YYFvCbOV9TQiysQY",
+      google: "4cGffAbC3ulh1YKxvgFrMxyGljs4w51U_vZx6f98GfI",
     },
   };
 };
