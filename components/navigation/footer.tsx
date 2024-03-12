@@ -42,7 +42,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               />
             </div>
           </div>
-          <div>
+          {/* <div>
             <div className="text-sm text-neutral-400">
               {dictionary.footer.currentlyAtText}
             </div>
@@ -50,7 +50,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               <div className="w-2 h-2 rounded-full bg-emerald-400" />
               {siteConfig.currentlyAt}
             </div>
-          </div>
+          </div> */}
         </div>
         {/* Bottom Section */}
         <div className="flex flex-wrap items-center justify-between gap-4 py-3 mt-16 border-t">
@@ -59,10 +59,7 @@ const Footer = async ({ locale }: { locale: string }) => {
           </div>
           <div className="text-sm">
             {dictionary.footer.creatorText}{" "}
-            <Link
-              className="underline underline-offset-4"
-              href="https://twitter.com/makrdev"
-            >
+            <Link className="underline underline-offset-4" href="">
               @onezerohub
             </Link>
           </div>
