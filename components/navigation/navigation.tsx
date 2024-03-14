@@ -10,7 +10,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
       <PaddingContainer>
         <div className="flex items-center justify-between py-5">
           <Link className="text-lg font-bold" href={`/${locale}`}>
-            Bhwaya
+            Explorer
           </Link>
           {/* Category Links */}
           <nav>

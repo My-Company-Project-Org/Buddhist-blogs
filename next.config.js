@@ -7,7 +7,7 @@ const nextConfig = {
         protocol: "https",
       },
       {
-        hostname: "directus-production-1e20.up.railway.app",
+        hostname: "directus-production-8653.up.railway.app",
         protocol: "https",
       },
     ],

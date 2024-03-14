@@ -51,9 +51,9 @@ export const generateMetadata = async ({
         "de-DE": `${process.env.NEXT_PUBLIC_SITE_URL}/de`,
       },
     },
-
+    /* Verification for Google Search Console */
     verification: {
-      google: "4cGffAbC3ulh1YKxvgFrMxyGljs4w51U_vZx6f98GfI",
+      google: "phZgjAmXFUPB7WEa-ETZ3HfDj9tAifMO1VRJd7ybIQo",
     },
   };
 };
@@ -72,13 +72,12 @@ export default function RootLayout({
       {/* Google Analytics Script */}
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-Z4YJZ1BJ3V"
+        src="https://www.googletagmanager.com/gtag/js?id=G-11Y5YESB1F"
       ></Script>
-
-      <Script id="google-analytics">{`  window.dataLayer = window.dataLayer || [];
+      <Script id="google-analytics">{`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-Z4YJZ1BJ3V');`}</Script>
+  gtag('config', 'G-11Y5YESB1F');`}</Script>
       <body className={inter.className}>
         {/* @ts-expect-error Async Server Component */}
         <Navigation locale={lang} />
