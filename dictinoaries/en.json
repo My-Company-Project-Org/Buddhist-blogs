@@ -2,7 +2,8 @@
   "navigation": {
     "links": {
       "cities": "Cities",
-      "experience": "Experiences"
+      "experience": "Experiences",
+      "css": "css"
     }
   },
   "buttons": {

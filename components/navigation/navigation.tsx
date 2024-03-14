@@ -28,6 +28,12 @@ const Navigation = async ({ locale }: { locale: string }) => {
                   {dictionary.navigation.links.experience}
                 </Link>
               </li>
+
+              <li>
+                <Link href={`/${locale}/css`}>
+                  {dictionary.navigation.links.css}
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
