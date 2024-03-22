@@ -19,8 +19,8 @@ const Navigation = async ({ locale }: { locale: string }) => {
                 <LangSwitcher locale={locale} />
               </li>
               <li>
-                <Link href={`/${locale}/cities`}>
-                  {dictionary.navigation.links.cities}
+                <Link href={`/${locale}/concepts`}>
+                  {dictionary.navigation.links.concept}
                 </Link>
               </li>
               <li>
