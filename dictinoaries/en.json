@@ -1,6 +1,7 @@
 {
   "navigation": {
     "links": {
+      "cities": "Cities",
       "experience": "Experiences"
     }
   },
