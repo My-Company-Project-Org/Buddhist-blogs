@@ -52,9 +52,10 @@ export const generateMetadata = async ({
       },
     },
     /* Verification for Google Search Console */
-    verification: {
-      google: "google193c8696255e4840.html",
-    },
+    // verification: {
+    //   google: "OtqwDrZLV7iy8f2yLayVgO7Puz1YYFvCbOV9TQiysQY",
+
+    // },
   };
 };
 
@@ -69,6 +70,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang={lang}>
+      <meta
+        name="google-site-verification"
+        content="OtqwDrZLV7iy8f2yLayVgO7Puz1YYFvCbOV9TQiysQY"
+      />
       {/* Google Analytics Script */}
       <Script
         strategy="afterInteractive"
