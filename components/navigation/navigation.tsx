@@ -20,7 +20,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
               </li>
               <li>
                 <Link href={`/${locale}/concepts`}>
-                  {dictionary.navigation.links.concepts}
+                  {dictionary.navigation.links.concept}
                 </Link>
               </li>
               <li>
