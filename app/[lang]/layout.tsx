@@ -52,9 +52,10 @@ export const generateMetadata = async ({
       },
     },
     /* Verification for Google Search Console */
-    verification: {
-      google: "OtqwDrZLV7iy8f2yLayVgO7Puz1YYFvCbOV9TQiysQY",
-    },
+    // verification: {
+    //   google: "OtqwDrZLV7iy8f2yLayVgO7Puz1YYFvCbOV9TQiysQY",
+
+    // },
   };
 };
 
