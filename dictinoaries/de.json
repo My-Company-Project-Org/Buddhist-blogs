@@ -1,7 +1,9 @@
 {
   "navigation": {
     "links": {
-      "experience": "Erfahrungen"
+      "cities": "Städte",
+      "experience": "Erfahrungen",
+      "css": "Css"
     }
   },
   "buttons": {
@@ -9,14 +11,14 @@
   },
   "ctaCard": {
     "title": "Entdecke die Welt mit mir!",
-    "description": "Um Menschen zu helfen, die die Realität des Lebens verstehen und versuchen, Antworten auf verschiedene Probleme zu finden, die im praktischen Leben auftreten, veröffentliche ich diesen Blogartikel hier.",
+    "description": "",
     "button": "Anmelden",
     "placeholder": "Schreibe deine E-Mail.",
     "subscriberText1": "Trete unserem",
     "subscriberText2": "Verteiler jetzt bei!"
   },
   "footer": {
-    "description": "Um Menschen zu helfen, die die Realität des Lebens verstehen und versuchen, Antworten auf verschiedene Probleme zu finden, die im praktischen Leben auftreten, veröffentliche ich diesen Blogartikel hier.",
+    "description": "",
     "rightsText": "Alle Rechte vorbehalten | Urheberrecht",
     "creatorText": "Erstellt mit ❤️ von",
     "currentlyAtText": "Derzeit in"

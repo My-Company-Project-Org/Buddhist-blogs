@@ -14,7 +14,7 @@ export interface SiteConfig {
 const siteConfig: SiteConfig = {
   siteName: "Bhwaya",
   description:
-    "To help people who understand the reality of life and try to find answers to various problems that occur in practical life, I am publishing this blog article here.",
+    "A minimal and lovely travel blog which shares experiences and citiest around the world!",
   currentlyAt: "Budapest",
   socialLinks: {
     twitter: "",
