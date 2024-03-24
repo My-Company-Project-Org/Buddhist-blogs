@@ -17,8 +17,8 @@ const PostBody = ({ body }: { body: string }) => {
               className="object-cover object-center h-auto my-3 rounded-md "
               src={src}
               alt={alt}
-              width={width}
-              height={height}
+              width={width ? parseInt(width) : undefined} // Provide default value or undefined
+              height={height ? parseInt(height) : undefined} // Provide default value or undefined
             />
           );
         }
