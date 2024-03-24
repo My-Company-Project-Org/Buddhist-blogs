@@ -14,4 +14,18 @@
   .rich-text p {
     @apply mb-3 leading-snug text-neutral-700;
   }
+
+  .rich-text p img {
+    @apply mx-auto my-auto; /* Center image horizontally and vertically */
+  }
+
+  .rich-text ol {
+    @apply text-center;
+  }
+
+  /* @media (min-width: 640px) {
+    .rich-text ol li {
+      @apply pl-96;
+    }
+  } */
 }
