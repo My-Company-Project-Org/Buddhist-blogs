@@ -8,13 +8,6 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* STATIC METADATA */
-/* export const metadata: Metadata = {
-  title: "Explorer",
-  description:
-    "A minimal and lovely travel blog which shares experiences and citiest around the world!",
-}; */
-
 export const generateMetadata = async ({
   params: { lang },
 }: {
