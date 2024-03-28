@@ -65,12 +65,13 @@ export default function RootLayout({
       {/* Google Analytics Script */}
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-11Y5YESB1F"
+        src="https://www.googletagmanager.com/gtag/js?id=G-Z4YJZ1BJ3V"
       ></Script>
-      <Script id="google-analytics">{`window.dataLayer = window.dataLayer || [];
+
+      <Script id="google-analytics">{`  window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-11Y5YESB1F');`}</Script>
+  gtag('config', 'G-Z4YJZ1BJ3V');`}</Script>
       <body className={inter.className}>
         {/* @ts-expect-error Async Server Component */}
         <Navigation locale={lang} />
