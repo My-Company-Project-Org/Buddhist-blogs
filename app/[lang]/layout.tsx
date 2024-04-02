@@ -44,7 +44,7 @@
 //         "de-DE": `${process.env.NEXT_PUBLIC_SITE_URL}/de`,
 //       },
 //     },
-   
+
 //   };
 // };
 
@@ -80,8 +80,7 @@
 //   );
 // }
 
-
-import Head from 'next/head'; // Import Head component for managing metadata
+import Head from "next/head";
 import Footer from "@/components/navigation/footer";
 import Navigation from "@/components/navigation/navigation";
 import siteConfig from "@/config/site";
@@ -101,12 +100,12 @@ export const generateMetadata = async ({
   const dictionary = await getDictionary(lang);
 
   return {
-    title: ${dictionary.title} | ${siteConfig.siteName}, // Generate dynamic title
+    title: `${dictionary.title} | ${siteConfig.siteName}`, // Generate dynamic title
     description: dictionary.footer.description, // Use dynamic description from dictionary
     openGraph: {
       title: siteConfig.siteName,
       description: dictionary.footer.description,
-      url: ${process.env.NEXT_PUBLIC_SITE_URL}/${lang},
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}`,
       siteName: siteConfig.siteName,
       images: [
         {
@@ -119,10 +118,10 @@ export const generateMetadata = async ({
       type: "website",
     },
     alternates: {
-      canonical: ${process.env.NEXT_PUBLIC_SITE_URL},
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
       languages: {
-        "en-US": ${process.env.NEXT_PUBLIC_SITE_URL}/en,
-        "de-DE": ${process.env.NEXT_PUBLIC_SITE_URL}/de,
+        "en-US": `${process.env.NEXT_PUBLIC_SITE_URL}/en`,
+        "de-DE": `${process.env.NEXT_PUBLIC_SITE_URL}/de`,
       },
     },
     /* Verification for Google Search Console */
@@ -141,23 +140,31 @@ export default function RootLayout({
     lang: string;
   };
 }) {
+  const metadata = await generateMetadata({ params: { lang } }); // Await generateMetadata
+
   return (
     <>
       <Head>
         {/* Metadata */}
-        <title>{generateMetadata(lang).title}</title>
-        <meta name="description" content={generateMetadata(lang).description} />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
         {/* Open Graph */}
-        <meta property="og:title" content={generateMetadata(lang).openGraph.title} />
-        <meta property="og:description" content={generateMetadata(lang).openGraph.description} />
-        <meta property="og:url" content={generateMetadata(lang).openGraph.url} />
-        <meta property="og:site_name" content={generateMetadata(lang).openGraph.siteName} />
-        <meta property="og:type" content={generateMetadata(lang).openGraph.type} />
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta
+          property="og:description"
+          content={metadata.openGraph.description}
+        />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:site_name" content={metadata.openGraph.siteName} />
+        <meta property="og:type" content={metadata.openGraph.type} />
         {/* Verification for Google Search Console */}
-        <meta name="google-site-verification" content={generateMetadata(lang).verification.google} />
+        <meta
+          name="google-site-verification"
+          content={metadata.verification.google}
+        />
         {/* Language Alternates */}
-        <link rel="canonical" href={generateMetadata(lang).alternates.canonical} />
-        {Object.entries(generateMetadata(lang).alternates.languages).map(([key, value]) => (
+        <link rel="canonical" href={metadata.alternates.canonical} />
+        {Object.entries(metadata.alternates.languages).map(([key, value]) => (
           <link key={key} rel="alternate" hrefLang={key} href={value} />
         ))}
       </Head>
