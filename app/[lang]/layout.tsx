@@ -100,7 +100,7 @@ export const generateMetadata = async ({
   const dictionary = await getDictionary(lang);
 
   return {
-    title: `${dictionary.title} | ${siteConfig.siteName}`, // Generate dynamic title
+    title: siteConfig.siteName, // Generate dynamic title
     description: dictionary.footer.description, // Use dynamic description from dictionary
     openGraph: {
       title: siteConfig.siteName,
