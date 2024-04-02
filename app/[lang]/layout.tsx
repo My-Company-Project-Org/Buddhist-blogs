@@ -131,7 +131,7 @@ export const generateMetadata = async ({
   };
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { lang },
 }: {
