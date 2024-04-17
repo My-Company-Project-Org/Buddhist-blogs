@@ -1,20 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+    typedRoutes: true,
+  },
   images: {
     remotePatterns: [
       {
-        hostname: "images.unsplash.com",
         protocol: "https",
+        hostname: "images.pexels.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        hostname: "directus-production-1e20.up.railway.app",
         protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
-  /*  experimental: {
-    serverActions: true,
-  }, */
 };
 
 module.exports = nextConfig;

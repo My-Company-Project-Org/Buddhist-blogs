@@ -79,15 +79,17 @@
 //     </html>
 //   );
 // }
-
+import "./globals.css";
+import "@/styles/index.scss";
+import { Poppins } from "next/font/google";
 import Head from "next/head";
 import Footer from "@/components/navigation/footer";
-import Navigation from "@/components/navigation/navigation";
+// import Navigation from "@/components/navigation/navigation";
 import siteConfig from "@/config/site";
 import { getDictionary } from "@/lib/getDictionary";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
+import SiteHeader from "../../components/navigation/SiteHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -98,6 +100,7 @@ export const generateMetadata = async ({
 }) => {
   // Get the Dictionary based on Lang
   const dictionary = await getDictionary(lang);
+  // console.log(dictionary);
 
   return {
     title: siteConfig.siteName, // Generate dynamic title
@@ -124,12 +127,14 @@ export const generateMetadata = async ({
         "de-DE": `${process.env.NEXT_PUBLIC_SITE_URL}/de`,
       },
     },
-    /* Verification for Google Search Console */
-    verification: {
-      google: "OtqwDrZLV7iy8f2yLayVgO7Puz1YYFvCbOV9TQiysQY",
-    },
   };
 };
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export default async function RootLayout({
   children,
@@ -143,52 +148,14 @@ export default async function RootLayout({
   const metadata = await generateMetadata({ params: { lang } }); // Await generateMetadata
 
   return (
-    <>
-      <Head>
-        {/* Metadata */}
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        {/* Open Graph */}
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
-        />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        {/* Verification for Google Search Console */}
-        <meta
-          name="google-site-verification"
-          content={metadata.verification.google}
-        />
-        {/* Language Alternates */}
-        <link rel="canonical" href={metadata.alternates.canonical} />
-        {Object.entries(metadata.alternates.languages).map(([key, value]) => (
-          <link key={key} rel="alternate" hrefLang={key} href={value} />
-        ))}
-      </Head>
-
-      {/* Google Analytics Script */}
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-Z4YJZ1BJ3V"
-      ></Script>
-
-      <Script id="google-analytics">{`  
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Z4YJZ1BJ3V');
-      `}</Script>
-
-      <body className={inter.className}>
-        {/* @ts-expect-error Async Server Component */}
-        <Navigation locale={lang} />
-        <div className="pt-10 min-h-[calc(100vh-300px)]">{children}</div>
-        {/* @ts-expect-error Async Server Component */}
-        <Footer locale={lang} />
+    <html lang="en" className={poppins.className}>
+      <body className="">
+        <div className="bg-[#f8f8f8] text-base dark:bg-neutral-900/95 text-neutral-900 dark:text-neutral-200">
+          <SiteHeader />
+          {children}
+          {/* <Footer /> */}
+        </div>
       </body>
-    </>
+    </html>
   );
 }
