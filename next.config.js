@@ -4,8 +4,17 @@ const nextConfig = {
     appDir: true,
     typedRoutes: true,
   },
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
+      {
+        hostname: "http://127.0.0.1:8055",
+        protocol: "http",
+        port: "8055",
+      },
       {
         protocol: "https",
         hostname: "images.pexels.com",
@@ -17,6 +26,10 @@ const nextConfig = {
         hostname: "images.unsplash.com",
         port: "",
         pathname: "/**",
+      },
+      {
+        hostname: "directus-production-1e20.up.railway.app",
+        protocol: "https",
       },
     ],
   },

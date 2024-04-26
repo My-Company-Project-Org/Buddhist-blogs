@@ -5,7 +5,7 @@ import Badge from "@/components/Badge/Badge";
 export interface CategoryBadgeListProps {
   className?: string;
   itemClass?: string;
-  categories: PostDataType["categories"];
+  categories: PostDataType["category"];
 }
 
 const CategoryBadgeList: FC<CategoryBadgeListProps> = ({
@@ -22,7 +22,7 @@ const CategoryBadgeList: FC<CategoryBadgeListProps> = ({
         <Badge
           className={itemClass}
           key={index}
-          name={item.name}
+          name={item.title}
           href={item.href}
           color={item.color as any}
         />

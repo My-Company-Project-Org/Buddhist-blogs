@@ -1,0 +1,139 @@
+{
+    id: 'c6a412d9-5315-401d-a9d6-d6a683f1f864',
+    status: 'published',
+    user_created: '6a15e8f9-da40-4c90-85e8-a8c3011d1944',
+    date_created: '2024-04-12T05:25:56.044Z',
+    date_updated: '2024-04-12T10:43:12.555Z',
+    title: 'The power of repetition',
+    description: 'He talks about the power of repetition with clear examples and then tells you how it affects your life',
+    slug: 'the-power-of-repetition-concept-with-example',
+    image: '34929a99-09ec-4ffe-99ce-cdaf9f2ea673',
+    body: '<p><strong><span class="___SText_1ohi6-red-team" data-ui-name="Link.Text">what is the purpose of repetition</span></strong></p>\n' +
+      '<p>Let me explain this with an example to make it easier for you to understand</p>\n' +
+      '<p>On a certain occasion, when I was on a trade trip, I went to see a place with 
+this cave. In some places inside this cave, there are stones on the ground and above those stones are stones made of rocks. These are called hiritaba.</p>\n' +
+      '<p>Holes have been formed parallel to the places where there are bumps. I wondered how these holes were formed, only to look at them, I realized that these holes are formed by the drop of water falling.</p>\n' +
+      '<p>Even if I brought water for two years and watered this rock with buckets of water for a whole day, I could not do any damage to that rock.</p>\n' +
+      '<p>But I saw that there was a change that could not be imagined to happen by doing a lot at once through the continuous falling of water drop by drop drop by drop for a 
+period of time. This is the most important point of this concept.</p>\n' +
+      '<p><strong><span class="___SText_1ohi6-red-team" data-ui-name="Link.Text">repetittion works best for</span></strong></p>\n' +
+      '<p><span class="___SText_1ohi6-red-team" data-ui-name="Link.Text">At that time I 
+remembered a certain saying said by Mr.<a href="https://en.wikipedia.org/wiki/The_Legend_of_Bruce_Lee" target="_blank" rel="noopener"> Bruce Lee</a>, a fighter. Everyone knows 
+that Bruce Lee is an actor and a good fighter. There are different opinions about his fighting ability. Some people say that he is not as talented as he thinks. I am somewhere 
+in the middle between the two. However, someone who had some ability was definitely there</span></p>\n' +
+      '<p><span class="___SText_1ohi6-red-team" data-ui-name="Link.Text"><img src="https://directus-production-1e20.up.railway.app/assets/9953eb93-db8f-42d9-9533-7e11d9302872?width=500&amp;height=300" alt="Bruce Lee"></span></p>\n' +
+      `<p><span class="___SText_1ohi6-red-team" data-ui-name="Link.Text">You have seen Bruce Lee's <a href="https://youtu.be/kXwOU5HzTZQ?t=1" target="_blank" rel="noopener">One-inch punch</a>, he has done it with only one hand. fear the man who has practiced one kick 10,000 times."<br><br></span></p>\n` +
+      '<p><strong><span class="___SText_1ohi6-red-team" data-ui-name="Link.Text">what is the effect of the repetition of your</span></strong></p>\n' +
+      "<p>Sometimes you don't know that our brain works with electricity. If you don't know, you might be asking today. Our brain works with electricity, but not in a large amount like lighting a light bulb. Our brain works only when a small amount is spread over 
+a large amount.</p>\n" +
+      '<p><img src="https://directus-production-1e20.up.railway.app/assets/66d99828-1a41-4a9f-abc9-69cc6945c7d9?width=500&amp;height=300" alt="Neural Network"></p>\n' +        
+      "<p>We cannot tell the exact number of neurons in the brain. To get a basic understanding, let's assume that there may be between 100-80 billion. Electric discharges go here and there between your neurons. All the things you see, hear, do, taste, smell and imagine are all. Things happen.</p>\n" +
+      '<p>When you do something, electricity flows through a number of neurons in your brain. Imagine that when you do any action, a certain path is made through the neurons of your brain, we call it a neural network.</p>\n' +
+      '<p>So when you do something continuously, the density in that neural network increases and you can reduce the efficiency and chance of making mistakes as you continue to do it over time.</p>\n' +
+      '<p>&nbsp;</p>\n' +
+      '<p>Thank you.</p>',
+    translations: [ [Object] ],
+    author: {
+      id: '6a15e8f9-da40-4c90-85e8-a8c3011d1944',
+      first_name: 'Harshana',
+      last_name: ' Weerasinghe'
+    },
+    category: {
+      id: '7a8f907f-56e7-4b7e-a74e-c27f2f39a4ad',
+      title: 'Experiences',
+      translations: [Array]
+    }
+  }
+]
+[
+  {
+    id: '16bd45a9-4a75-45c7-bd6f-30bb9ba9ec0a',
+    status: 'published',
+    user_created: '6a15e8f9-da40-4c90-85e8-a8c3011d1944',
+    date_created: '2024-03-22T09:00:25.034Z',
+    date_updated: '2024-03-31T05:31:21.658Z',
+    title: 'How people matter to goals',
+    description: 'A clear definition with examples of how the human body contributes to 
+the goals',
+    slug: 'how-people-matter-to-goals',
+    image: 'e097d41e-10f9-4905-9077-0820db221a36',
+    body: '<p>The creature we call human being is created through the process of evolution just like other animals on this earth. It means that our body changes in various ways so as to be able to collide with the surrounding environment. This is a very slow process that takes thousands of years.</p>\n' +
+      '<p>If we look at the last 100 years, the evolution is happening very slowly compared to our surroundings and the amount of responsibility that this society demands from 
+us and the society has imposed on us.</p>\n' +
+      '<p><img src="https://directus-production-1e20.up.railway.app/assets/9826a8b7-d1fa-4d8c-a84d-2e72e6e757e0?width=500&amp;height=300" alt="Hq X1 Fxgzs Hqsucel10x6 Q"></p>\n' +
+      '<p>If we look at our bodies properly, our bodies are made in such a way that we can face the various challenges that existed in the environmental conditions thousands of years ago. Then you need to think about it. Our bodies are still working to meet these 
+basic needs, but now there are many different challenges, different demands, different responsibilities, so we need to pay our respects to this body as well. And we have to respect the way it works.</p>\n' +
+      "<p>Don't expect to reach your goals all at once. We have to do them very slowly and failures happen by us. Because of that change, our body is not yet ready to learn and memorize many different abilities. We have to move forward by changing little by little.</p>\n" +
+      '<p><img src="https://directus-production-1e20.up.railway.app/assets/03478ab4-43a7-463f-aea3-61fc0cdfd7f6?width=500&amp;height=300" alt="Vsuo7 K R9 R Zyn7sk Aa Az Dwq"></p>\n' +
+      `<p><em>"Ralph Waldo Emerson"</em> said a very important saying: <strong>"Plant a 
+thought, and you will reap an action. Plant an action, and you will reap a habit. Plant 
+a habit, and you will reap a character."</strong> You plant a character trait and you reap a destiny." It means how can we change our life path. It starts with a thought and we develop it into an action. Repeat the action and improve it as a habit. By repeating that habit, it becomes a characteristic of our character, and when we repeat it, it changes into a destiny. That's what it means</p>\n` +
+      '<p>If we want to improve something, we have to improve every aspect. As each section is developed, when they are integrated, a great improvement is obtained.</p>\n' +   
+      '<p>Example</p>\n' +
+      "<p>A man named Michael is losing back to back in his weightlifting competitions so he decides to change his coach. His new coach changes everything about Michael's competition. Every aspect was improved, such as the clothes he wears, the shoes he wears, and the place he trains, etc., thus improving things and training for several years, Michael won several consecutive victories in weightlifting competitions. Finally, this person 
+named Michael got the opportunity to participate in the Olympic Games. In the olympic games, this man named Michael achieved several outdoor victories in weightlifting competitions.</p>\n" +
+      '<p><img src="https://directus-production-1e20.up.railway.app/assets/f5f4ee5e-5c25-4cf7-a991-21e8878a1118?width=500&amp;height=300" alt="Wl Xb D I4v Si Kj P Yn62 U A8g"></p>\n' +
+      '<p>Thank you.</p>',
+    translations: [ [Object] ],
+    author: {
+      id: '6a15e8f9-da40-4c90-85e8-a8c3011d1944',
+      first_name: 'Harshana',
+      last_name: ' Weerasinghe'
+    },
+    category: {
+      id: '7a8f907f-56e7-4b7e-a74e-c27f2f39a4ad',
+      title: 'Experiences',
+      translations: [Array]
+    }
+  },
+  {
+    id: '4e74b87c-1d4b-4b9b-a59a-87cdbb99c567',
+    status: 'published',
+    user_created: '6a15e8f9-da40-4c90-85e8-a8c3011d1944',
+    date_created: '2024-03-22T08:56:23.641Z',
+    date_updated: '2024-03-27T05:12:27.796Z',
+    title: 'Do you suddenly lose motivation to work?',
+    description: 'When doing work, the motivation that you have all at once drops all at once. After that, after another day, tomorrow or two or three days later, we will come 
+to the motivation. We will then tell the person not to get bored and continue.',        
+    slug: 'do-you-suddenly-lose-motivation-to-work',
+    image: '069888e0-1805-4b13-8c5a-80b38aa581bf',
+    body: '<p>I will start my speech by saying good day to everyone.</p>\n' +
+      "<p>Actually, this problem does not come to a person who is just sitting at home without doing any work, but to a person who is busy with some work. Then how does this happen and how do we get rid of this are the issues that we are talking about. <strong>The first one has internal friction.&nbsp;</strong>Actually, inner conflict can happen under 03 parts, it can be mental, it can be spiritual or it can be with some feeling. Let's 
+talk about how to be mentally</p>\n" +
+      "<p>Let's say we want to make $100,000. We have developed the business and worked 
+as hard as you did before.<br>Then the work is carried out with fear and sadness because of the doubt that the same thing will happen again when the work is done again. Then they catch up. For a while, the feeling of having a memory starts to come more and the motivation is lost. Because of the fear and doubt that this will happen again.</p>\n" +    
+      '<p><img src="https://directus-production-1e20.up.railway.app/assets/74dfc38a-321f-4536-8954-9cf4736e9e4c?width=500&amp;height=300" alt="Jy0t2 Nle Tau G Oj6k Jm Gf Dq"></p>\n' +
+      "<p>There is a strong feeling on the negative side, which means that while doing this work, I will not get this, or I am not worthy, I am not talented, I have a feeling that someone else is more talented than this. But the work is going on. You can continue 
+for a while, then you get bored and lose the motivation to continue the work<br>We did this degree and now we have done the master's degree, but now it is not clear to me that 
+this is not the path I want to take.</p>\n" +
+      '<p>Example There was a friend of mine who graduated from the same university with me and was working as an engineer with a good salary in a well-recognized company. He got tired of that job and left that job and moved to another field of work as a bus driver which he likes.</p>\n' +
+      '<p><img src="https://directus-production-1e20.up.railway.app/assets/abb52adf-536f-49e9-bb19-5636f4d11fb1?width=500&amp;height=300" alt="1w Vrz Fqwrc Xc D I0l U Wflw"></p>\n' +
+      "<p>Example - michael phelps This person is an olympic award winner in various fields. This person's height is about six and four. He was involved in both basketball and 
+swimming. But this person's body was designed to play basketball, but with the help of his trainers and the technology available in America, his anatomy has been made in such a way that it is easy to swim very fast. This person left the basketball game under the knowledge of the coaches and continued to practice swimming.<br>Finally, this person won 
+consecutive awards in swimming competitions at the olympic events.<br>He was able to get consecutive awards because he chose the best.<br>If they find the right setting for them, all such people can become experts, become great, collect a lot of money, become famous, and think that they are doing great things.</p>\n" +
+      '<p><img src="https://directus-production-1e20.up.railway.app/assets/a406b10a-069b-4e81-b0b5-270830f1ec2b?width=500&amp;height=300" alt="Jd Zz2f Sz St Gpra S8 B Xr5e A"></p>\n' +
+      '<p>Example - If you are thinking of spreading some product all over the country, 
+see how to spread it all over the world</p>\n' +
+      '<p>Always try to increase the standards, then the motivation together will start 
+to come. Discipline of those who set standards very high does not fall easily. Such people cannot be knocked down easily.</p>\n' +
+      '<p>What kind of environment are you in? To develop self-confidence, to develop discipline, to develop energy, to develop talent for certain things, you need to develop in that environment.<br>I am not going to talk about it at length.</p>\n' +
+      '<p>When we do some work, there is a way that the neurohormones etc. in our body work. We have to train our body to do something and then there is a problem. If we have any addiction, it becomes difficult to do it.</p>\n' +
+      '<p>Example - If you use a drug, if you are addicted to playing video games, 10, 12 hours</p>\n' +
+      '<p><img src="https://directus-production-1e20.up.railway.app/assets/f9e2bf73-8c76-4115-8d86-219e07730c54?width=500&amp;height=300" alt="Ndq Qe8 Uat Pa J Eu Es7 Yx N1w"></p>\n' +
+      '<p>Then the body is directed to do more of that work, it is when it releases the 
+dopamine it needs to work the neurology it needs. Therefore, addictions have to be eliminated</p>\n' +
+      '<p>Thank you.</p>\n' +
+      '<p>&nbsp;</p>\n' +
+      '<p>&nbsp;</p>',
+    translations: [ [Object] ],
+    author: {
+      id: '6a15e8f9-da40-4c90-85e8-a8c3011d1944',
+      first_name: 'Harshana',
+      last_name: ' Weerasinghe'
+    },
+    category: {
+      id: '95d55af9-e34a-42c2-b265-1d72beb6884b',
+      title: 'Concepts',
+      translations: [Array]
+    }
+  },

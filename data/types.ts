@@ -11,7 +11,7 @@ export interface CustomLink {
 //  ##########  PostDataType ######## //
 export interface TaxonomyType {
   id: string | number;
-  name: string;
+  title: string;
   href: Route;
   count?: number;
   thumbnail?: string | StaticImageData;
@@ -38,11 +38,12 @@ export interface PostDataType {
   id: string | number;
   author: PostAuthorType;
   date: string;
-  href: Route;
-  categories: TaxonomyType[];
+  slug: Route;
+  category: TaxonomyType[];
   title: string;
-  featuredImage: string | StaticImageData;
-  desc?: string;
+  image: string | StaticImageData;
+  body: String;
+  description?: string;
   like: {
     count: number;
     isLiked: boolean;

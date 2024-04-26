@@ -35,17 +35,18 @@ const SocialLink = ({
   };
 
   return (
-    <Link href={link}>
-      <div
-        className={`${
-          isShareURL
-            ? "py-2 px-3 w-full bg-neutral-200 rounded-md text-neutral-600 hover:bg-neutral-600 hover:text-neutral-100 duration-100 ease-in-out transition-colors"
-            : ""
-        }`}
-      >
-        {getIcon(platform)}
-      </div>
-    </Link>
+    // <Link href={link}>
+    //   <div
+    //     className={`${
+    //       isShareURL
+    //         ? "py-2 px-3 w-full bg-neutral-200 rounded-md text-neutral-600 hover:bg-neutral-600 hover:text-neutral-100 duration-100 ease-in-out transition-colors"
+    //         : ""
+    //     }`}
+    //   >
+    //     {getIcon(platform)}
+    //   </div>
+    // </Link>
+    <></>
   );
 };
 

@@ -1,16 +1,14 @@
-import CTACard from "@/components/elements/cta-card";
-import SocialLink from "@/components/elements/social-link";
-import PaddingContainer from "@/components/layout/padding-container";
-import PostBody from "@/components/post/post-body";
-import PostHero from "@/components/post/post-hero";
 import siteConfig from "@/config/site";
 import directus from "@/lib/directus";
 import { getDictionary } from "@/lib/getDictionary";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import SingleHeader from "../SingleHeader";
+import NcImage from "@/components/NcImage/NcImage";
+import SingleContent from "../SingleContent";
 
 // Get Post Data
-export const getPostData = cache(async (postSlug: string, locale: string) => {
+const getPostData = cache(async (postSlug: string, locale: string) => {
   try {
     const post = await directus.items("post").readByQuery({
       filter: {
@@ -175,45 +173,35 @@ const Page = async ({
   const dictionary = await getDictionary(locale);
 
   return (
-    <PaddingContainer>
+    <>
       {/* Add JSON-LD to your page */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Container */}
-      <div className="space-y-10">
-        {/* Post Hero */}
-        <PostHero locale={locale} post={post} />
-        {/* Post Body and Social Share */}
-        <div className="flex flex-col gap-10 md:flex-row">
-          <div className="relative">
-            <div className="sticky flex items-center gap-5 md:flex-col top-20">
-              <div className="font-medium md:hidden">Share this content:</div>
-              <SocialLink
-                isShareURL
-                platform="facebook"
-                link={`https://www.facebook.com/sharer/sharer.php?u=${`${process.env.NEXT_PUBLIC_SITE_URL}/post/${post.slug}`}`}
-              />
-              <SocialLink
-                isShareURL
-                platform="twitter"
-                link={`https://twitter.com/intent/tweet?url=${`${process.env.NEXT_PUBLIC_SITE_URL}/post/${post.slug}`}`}
-              />
-              <SocialLink
-                isShareURL
-                platform="linkedin"
-                link={`https://www.linkedin.com/shareArticle?mini=true&url=${`${process.env.NEXT_PUBLIC_SITE_URL}/post/${post.slug}`}`}
-              />
-            </div>
+      <div className={`nc-PageSingle pt-8 lg:pt-16`}>
+        <header className="container rounded-xl">
+          <div className="max-w-screen-md mx-auto">
+            <SingleHeader post={post} />
           </div>
-          <PostBody body={post.body} />
+        </header>
+
+        {/* FEATURED IMAGE */}
+        <NcImage
+          alt="single"
+          containerClassName="container my-10 sm:my-12"
+          className="w-full rounded-xl"
+          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimised`}
+          width={1260}
+          height={750}
+          sizes="(max-width: 1024px) 100vw, 1280px"
+        />
+
+        <div className="container mt-10">
+          <SingleContent post={post} />
         </div>
-        {/* CTA Card */}
-        {/* ---@ts-expect-error Async Server Component */}
-        <CTACard dictionary={dictionary} />
       </div>
-    </PaddingContainer>
+    </>
   );
 };
 

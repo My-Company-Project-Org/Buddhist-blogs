@@ -1,8 +1,9 @@
-import SectionLatestPosts from "@/components/Sections/SectionLatestPosts";
-import CTACard from "@/components/elements/cta-card";
-import PaddingContainer from "@/components/layout/padding-container";
+// import SectionSubscribe2 from "@/components/SectionSubscribe2/SectionSubscribe2";
+// import SectionLatestPosts from "@/components/Sections/SectionLatestPosts";
+// import CTACard from "@/components/elements/cta-card";
+// import PaddingContainer from "@/components/layout/padding-container";
 import PostCard from "@/components/post/post-card";
-import PostList from "@/components/post/post-lists";
+// import PostList from "@/components/post/post-lists";
 import directus from "@/lib/directus";
 import { getDictionary } from "@/lib/getDictionary";
 import { notFound } from "next/navigation";
@@ -16,40 +17,100 @@ export default async function Home({
 }) {
   const locale = params.lang;
 
+  // const getAllPosts = async () => {
+  //   try {
+  //     const posts = await directus.items("post").readByQuery({
+  //       fields: [
+  //         "*",
+  //         "author.id",
+  //         "author.first_name",
+  //         "author.last_name",
+  //         "category.id",
+  //         "category.title",
+  //         "category.translations.*",
+  //         "translations.*",
+  //       ],
+  //     });
+
+  //     if (locale === "en") {
+  //       return posts.data;
+  //     } else {
+  //       const localisedPosts = posts.data?.map((post) => {
+  //         return {
+  //           ...post,
+  //           title: post.translations[0].title,
+  //           description: post.translations[0].description,
+  //           body: post.translations[0].body,
+  //           category: {
+  //             ...post.category,
+  //             title: post.category.translations[0].title,
+  //           },
+  //         };
+  //       });
+  //       return localisedPosts;
+  //     }
+
+  //     /* console.log(posts.data?.[0]); */
+  //   } catch (error) {
+  //     console.log(error);
+
+  //     throw new Error("Error fetching posts");
+  //   }
+  // };
+
   const getAllPosts = async () => {
     try {
       const posts = await directus.items("post").readByQuery({
         fields: [
           "*",
           "author.id",
+          "author.email",
           "author.first_name",
           "author.last_name",
+          "author.displayName",
+          "author.avatar.height",
+          "author.avatar.width",
+          "author.avatar.id",
+          "author.desc",
+          "author.jobName",
+          "author.avatar.filename",
+          "author.href",
+          "author.gender",
+          "author.count",
+          "author.bgImage",
           "category.id",
-          "category.title",
-          "category.translations.*",
-          "translations.*",
+          "category.name",
+          "category.href",
+          "category.count",
+          "category.color",
+          "category.thumbnail",
         ],
       });
 
-      if (locale === "en") {
-        return posts.data;
-      } else {
-        const localisedPosts = posts.data?.map((post) => {
-          return {
-            ...post,
-            title: post.translations[0].title,
-            description: post.translations[0].description,
-            body: post.translations[0].body,
-            category: {
-              ...post.category,
-              title: post.category.translations[0].title,
-            },
-          };
+      // Check if there are any posts
+      if (posts.data && posts.data.length > 0) {
+        posts.data.forEach((post) => {
+          console.log(post);
         });
-        return localisedPosts;
       }
 
-      /* console.log(posts.data?.[0]); */
+      // if (locale === "en") {
+      //   return posts.data;
+      // } else {
+      //   const localisedPosts = posts.data?.map((post) => {
+      //     return {
+      //       ...post,
+      //       title: post.translations[0].title,
+      //       description: post.translations[0].description,
+      //       body: post.translations[0].body,
+      //       category: {
+      //         ...post.category,
+      //         title: post.category.translations[0].title,
+      //       },
+      //     };
+      //   });
+      //   return localisedPosts;
+      // }
     } catch (error) {
       console.log(error);
       throw new Error("Error fetching posts");
@@ -57,6 +118,7 @@ export default async function Home({
   };
 
   const posts = await getAllPosts();
+  // console.log(posts);
 
   if (!posts) {
     notFound();
@@ -64,6 +126,7 @@ export default async function Home({
 
   /* Get Dictionary */
   const dictionary = await getDictionary(locale);
+  // console.log(locale);
 
   return (
     // <PaddingContainer>
@@ -83,7 +146,7 @@ export default async function Home({
     //   </main>
     // </PaddingContainer>
 
-    <div className="nc-PageHome relative">
+    <div className="relative nc-PageHome">
       <div className="container relative">
         {/* <SectionLargeSlider
           className="pt-10 pb-16 md:py-16 lg:pb-28 lg:pt-20"
@@ -128,7 +191,7 @@ export default async function Home({
       </div>
 
       <div className="dark bg-neutral-900 dark:bg-black dark:bg-opacity-20 text-neutral-100">
-        <div className="relative container">
+        <div className="container relative">
           <SectionGridPosts
             className="py-16 lg:py-28"
             headingIsCenter
@@ -181,12 +244,16 @@ export default async function Home({
             )}
           />
         </div> */}
-        {/* 
-        <SectionSubscribe2 className="pt-16 lg:pt-28" />
 
-        <SectionVideos className="py-16 lg:py-28" /> */}
+        {/* <SectionSubscribe2 className="pt-16 lg:pt-28" /> */}
 
-        <SectionLatestPosts className="pb-16 lg:pb-28" />
+        {/* <SectionVideos className="py-16 lg:py-28" /> */}
+
+        {/* <SectionLatestPosts
+          locale={locale}
+          posts={posts}
+          className="pb-16 lg:pb-28"
+        /> */}
       </div>
     </div>
   );

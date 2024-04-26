@@ -83,7 +83,7 @@ import "./globals.css";
 import "@/styles/index.scss";
 import { Poppins } from "next/font/google";
 import Head from "next/head";
-import Footer from "@/components/navigation/footer";
+// import Footer from "@/components/navigation/footer";
 // import Navigation from "@/components/navigation/navigation";
 import siteConfig from "@/config/site";
 import { getDictionary } from "@/lib/getDictionary";
@@ -151,7 +151,7 @@ export default async function RootLayout({
     <html lang="en" className={poppins.className}>
       <body className="">
         <div className="bg-[#f8f8f8] text-base dark:bg-neutral-900/95 text-neutral-900 dark:text-neutral-200">
-          <SiteHeader />
+          {/* <SiteHeader /> */}
           {children}
           {/* <Footer /> */}
         </div>
