@@ -89,7 +89,8 @@ import siteConfig from "@/config/site";
 import { getDictionary } from "@/lib/getDictionary";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import SiteHeader from "../../components/navigation/SiteHeader";
+import SiteHeader from "../../components/Navigation/SiteHeader";
+import Footer from "@/components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -151,9 +152,9 @@ export default async function RootLayout({
     <html lang="en" className={poppins.className}>
       <body className="">
         <div className="bg-[#f8f8f8] text-base dark:bg-neutral-900/95 text-neutral-900 dark:text-neutral-200">
-          {/* <SiteHeader /> */}
+          <SiteHeader />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </body>
     </html>

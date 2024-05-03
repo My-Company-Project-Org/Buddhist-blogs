@@ -35,7 +35,7 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
   ) => {
     return (
       <div key={category.id} className={`flex flex-col space-y-4`}>
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <Badge
             className="uppercase tracking-wide rounded-none px-4 py-1.5"
             name={category.name}
@@ -58,7 +58,7 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
             .filter((_, i) => i > 0)
             .map((post) => (
               <li key={post.id}>
-                <h2 className="nc-card-title flex items-start font-medium space-x-4 rtl:space-x-reverse">
+                <h2 className="flex items-start space-x-4 font-medium nc-card-title rtl:space-x-reverse">
                   <Badge
                     className="w-2.5 h-2.5 !p-0 rounded flex-shrink-0 mt-2"
                     name={""}
@@ -70,19 +70,19 @@ const SectionMagazine11: FC<SectionMagazine11Props> = ({
                 </h2>
               </li>
             ))}
-        </ul>
+        </ul> */}
       </div>
     );
   };
 
   return (
     <div className={`nc-SectionMagazine11 relative ${className}`}>
-      <Heading desc={"Click on music icon and enjoy music or podcast"}>
+      {/* <Heading desc={"Click on music icon and enjoy music or podcast"}>
         Listen to audio live
       </Heading>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-4 md:gap-7">
         {categories.map((cate, i) => renderListByCat(cate, posts[i]))}
-      </div>
+      </div> */}
     </div>
   );
 };

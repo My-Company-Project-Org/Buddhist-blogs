@@ -1,5 +1,5 @@
 import { TwMainColor } from "@/data/types";
-import { Route } from "@/routers/types";
+// import { Route } from "@/routers/types";
 import Link from "next/link";
 import React, { FC, ReactNode } from "react";
 
@@ -7,7 +7,6 @@ export interface BadgeProps {
   className?: string;
   name: ReactNode;
   color?: TwMainColor;
-  href?: Route;
 }
 
 const Badge: FC<BadgeProps> = ({
@@ -60,7 +59,7 @@ const Badge: FC<BadgeProps> = ({
     className;
   return !!href ? (
     <Link
-      href={href || "/"}
+      href={href}
       className={`transition-colors hover:text-white duration-300 ${CLASSES} ${getColorClass()}`}
     >
       {name}

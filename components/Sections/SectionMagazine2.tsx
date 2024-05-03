@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Card2 from "@/components/Card2/Card2";
 import { SectionMagazine1Props } from "./SectionMagazine1";
-import HeaderFilter from "./HeaderFilter";
+// import HeaderFilter from "./HeaderFilter";
 import Card11 from "@/components/Card11/Card11";
 
 export interface SectionMagazine2Props extends SectionMagazine1Props {}
@@ -13,10 +13,10 @@ const SectionMagazine2: FC<SectionMagazine2Props> = ({
 }) => {
   return (
     <div className={`nc-SectionMagazine2 ${className}`}>
-      <HeaderFilter heading={heading} />
+      {/* <HeaderFilter heading={heading} /> */}
 
       {!posts.length && <span>Nothing we found!</span>}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <div className="grid gap-6">
           {posts
             .filter((_, i) => i < 3 && i > 0)

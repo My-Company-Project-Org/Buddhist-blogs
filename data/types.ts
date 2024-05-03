@@ -1,19 +1,22 @@
-import { Route } from "@/routers/types";
+// import { Route } from "@/routers/types";
 import { StaticImageData } from "next/image";
 
 //  ######  CustomLink  ######## //
 export interface CustomLink {
   label: string;
-  href: Route;
+  href: String;
   targetBlank?: boolean;
 }
 
 //  ##########  PostDataType ######## //
 export interface TaxonomyType {
+  posts_id: any;
+  slice(arg0: number, arg1: number): unknown;
+  categories_id: any;
   id: string | number;
-  title: string;
-  href: Route;
-  count?: number;
+  name: string;
+  href: String;
+  count?: number | string;
   thumbnail?: string | StaticImageData;
   desc?: string;
   color?: TwMainColor | string;
@@ -28,33 +31,32 @@ export interface PostAuthorType {
   avatar: string | StaticImageData;
   bgImage?: string | StaticImageData;
   email?: string;
-  count: number;
+  count: number | string;
   desc: string;
   jobName: string;
-  href: Route;
+  href: String;
 }
 
 export interface PostDataType {
   id: string | number;
   author: PostAuthorType;
   date: string;
-  slug: Route;
-  category: TaxonomyType[];
+  href: String;
+  categories: TaxonomyType[];
   title: string;
-  image: string | StaticImageData;
-  body: String;
-  description?: string;
+  featuredImage: string | StaticImageData;
+  desc?: string;
   like: {
-    count: number;
-    isLiked: boolean;
+    count: number | string;
+    isLiked: boolean | string;
   };
   bookmark: {
-    count: number;
-    isBookmarked: boolean;
+    count: number | string;
+    isBookmarked: boolean | string;
   };
-  commentCount: number;
-  viewdCount: number;
-  readingTime: number;
+  commentCount: number | string;
+  viewdCount: number | string;
+  readingTime: number | string;
   postType: "standard" | "video" | "gallery" | "audio";
   videoUrl?: string;
   audioUrl?: string | string[];

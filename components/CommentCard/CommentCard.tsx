@@ -9,7 +9,7 @@ import ModalDeleteComment from "./ModalDeleteComment";
 import ModalReportItem from "@/components/ModalReportItem/ModalReportItem";
 import Link from "next/link";
 import { DEMO_AUTHORS } from "@/data/authors";
-import SingleCommentForm from "@/app/[lang]/post/SingleCommentForm";
+import SingleCommentForm from "@/app/[lang]/(singles)/SingleCommentForm";
 import CommentCardLikeReply from "../CommentCardLikeReply/CommentCardLikeReply";
 
 const DEMO_COMMENTS = [
