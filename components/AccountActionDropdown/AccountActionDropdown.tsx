@@ -54,7 +54,7 @@ const AccountActionDropdown: FC<AccountActionDropdownProps> = ({
   const openModalHideAuthor = () => setShowModalHideAuthor(true);
   const onCloseModalHideAuthor = () => setShowModalHideAuthor(false);
 
-  const hanldeClickDropDown = (item: typeof actions[number]) => {
+  const hanldeClickDropDown = (item: (typeof actions)[number]) => {
     if (item.id === "copylink") {
       navigator.clipboard.writeText(
         window.location.origin + "/author/this-is-slug"

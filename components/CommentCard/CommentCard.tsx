@@ -9,7 +9,7 @@ import ModalDeleteComment from "./ModalDeleteComment";
 import ModalReportItem from "@/components/ModalReportItem/ModalReportItem";
 import Link from "next/link";
 import { DEMO_AUTHORS } from "@/data/authors";
-import SingleCommentForm from "@/app/[lang]/(singles)/SingleCommentForm";
+import SingleCommentForm from "@/app/(singles)/SingleCommentForm";
 import CommentCardLikeReply from "../CommentCardLikeReply/CommentCardLikeReply";
 
 const DEMO_COMMENTS = [
@@ -157,7 +157,7 @@ const CommentCard: FC<CommentCardProps> = ({
           radius="rounded-full"
           containerClassName="mt-4"
         />
-        <div className="flex flex-col flex-grow p-4 text-sm border ms-2 border-neutral-200 rounded-xl sm:ms-3 sm:text-base dark:border-neutral-700">
+        <div className="flex-grow flex flex-col p-4 ms-2 text-sm border border-neutral-200 rounded-xl sm:ms-3 sm:text-base dark:border-neutral-700">
           {/* AUTHOR INFOR */}
           <div className="relative flex items-center pe-6">
             <div className="absolute -end-3 -top-3">
@@ -174,13 +174,13 @@ const CommentCard: FC<CommentCardProps> = ({
               {AUTHOR.displayName}
             </Link>
             <span className="mx-2">·</span>
-            <span className="text-xs text-neutral-500 dark:text-neutral-400 line-clamp-1 sm:text-sm">
+            <span className="text-neutral-500 dark:text-neutral-400 text-xs line-clamp-1 sm:text-sm">
               {date}
             </span>
           </div>
 
           {/* CONTENT */}
-          <span className="block mt-2 mb-3 text-neutral-700 sm:mt-3 sm:mb-4 dark:text-neutral-300">
+          <span className="block text-neutral-700 mt-2 mb-3 sm:mt-3 sm:mb-4 dark:text-neutral-300">
             {content}
           </span>
 

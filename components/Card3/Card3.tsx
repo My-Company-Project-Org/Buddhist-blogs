@@ -40,7 +40,7 @@ const Card3: FC<Card3Props> = ({ className = "h-full", post }) => {
               </span>
             </h2>
             <div className="hidden sm:block sm:mt-2">
-              <span className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-2">
+              <span className="text-neutral-500 dark:text-neutral-400 text-sm line-clamp-2">
                 {desc}
               </span>
             </div>
@@ -48,10 +48,10 @@ const Card3: FC<Card3Props> = ({ className = "h-full", post }) => {
 
           <PostCardMeta meta={{ ...post }} />
         </div>
-        {/* <div className="flex flex-wrap items-center justify-between mt-5">
+        <div className="mt-5 flex items-center flex-wrap justify-between">
           <PostCardLikeAndComment />
           <PostCardSaveAction readingTime={readingTime} />
-        </div> */}
+        </div>
       </div>
 
       <div
@@ -59,7 +59,7 @@ const Card3: FC<Card3Props> = ({ className = "h-full", post }) => {
       >
         <Link
           href={href}
-          className="relative block w-full h-0 aspect-h-1 aspect-w-1"
+          className="block w-full h-0 aspect-h-1 aspect-w-1 relative"
         >
           <NcImage
             containerClassName="absolute inset-0"

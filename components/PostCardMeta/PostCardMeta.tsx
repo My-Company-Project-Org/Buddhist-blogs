@@ -11,7 +11,7 @@ export interface PostCardMetaProps {
 }
 
 const PostCardMeta: FC<PostCardMetaProps> = ({
-  className = "text-xs leading-none",
+  className = "leading-none text-xs",
   meta,
   hiddenAvatar = false,
   avatarSize = "h-7 w-7 text-sm",
@@ -34,7 +34,7 @@ const PostCardMeta: FC<PostCardMetaProps> = ({
             userName={author.displayName}
           />
         )}
-        <span className="block font-medium text-neutral-700 hover:text-black dark:text-neutral-300 dark:hover:text-white">
+        <span className="block text-neutral-700 hover:text-black dark:text-neutral-300 dark:hover:text-white font-medium">
           {author.displayName}
         </span>
       </Link>
@@ -42,7 +42,7 @@ const PostCardMeta: FC<PostCardMetaProps> = ({
         <span className="text-neutral-500 dark:text-neutral-400 mx-[6px] font-medium">
           ·
         </span>
-        <span className="font-normal text-neutral-500 dark:text-neutral-400">
+        <span className="text-neutral-500 dark:text-neutral-400 font-normal">
           {date}
         </span>
       </>

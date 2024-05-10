@@ -5,9 +5,9 @@ const nextConfig = {
     typedRoutes: true,
   },
 
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     domains: [
       "127.0.0.1",

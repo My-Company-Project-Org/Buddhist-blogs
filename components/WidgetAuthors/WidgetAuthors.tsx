@@ -4,7 +4,7 @@ import { DEMO_AUTHORS } from "@/data/authors";
 import { PostAuthorType } from "@/data/types";
 import React, { FC } from "react";
 
-const authorsDemo: PostAuthorType[] = DEMO_AUTHORS.filter((_, i) => i < 8);
+const authorsDemo: PostAuthorType[] = DEMO_AUTHORS.filter((_, i) => i < 5);
 
 export interface WidgetAuthorsProps {
   className?: string;

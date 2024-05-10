@@ -82,14 +82,13 @@
 import "./globals.css";
 import "@/styles/index.scss";
 import { Poppins } from "next/font/google";
-import Head from "next/head";
 // import Footer from "@/components/navigation/footer";
 // import Navigation from "@/components/navigation/navigation";
 import siteConfig from "@/config/site";
 import { getDictionary } from "@/lib/getDictionary";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import SiteHeader from "../../components/Navigation/SiteHeader";
+import SiteHeader from "./SiteHeader";
 import Footer from "@/components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });

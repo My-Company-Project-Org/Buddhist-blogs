@@ -56,7 +56,7 @@ const Card19: FC<Card19Props> = ({
           <Image
             sizes="(max-width: 600px) 480px, 800px"
             className="object-cover w-full h-full rounded-xl"
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${featuredImage}`}
+            src={featuredImage}
             alt="post"
             fill
           />
@@ -66,14 +66,14 @@ const Card19: FC<Card19Props> = ({
             wrapSize="w-7 h-7"
             iconSize="w-4 h-4"
           />
-          <span className="absolute inset-0 transition-opacity bg-black opacity-0 bg-opacity-10 group-hover:opacity-100"></span>
+          <span className="absolute inset-0 bg-black bg-opacity-10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
         </Link>
       )}
       <Link
         href={href}
-        className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black opacity-80"
+        className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-black opacity-80"
       ></Link>
-      <div className="absolute inset-x-0 bottom-0 flex flex-col flex-grow p-5 sm:p-10">
+      <div className="absolute bottom-0 inset-x-0 p-5 sm:p-10 flex flex-col flex-grow">
         <Link href={href} className="absolute inset-0"></Link>
         {showCategories && (
           <div className="mb-3">

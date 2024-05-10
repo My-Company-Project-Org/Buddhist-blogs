@@ -13,7 +13,7 @@ export interface GallerySliderProps {
   className?: string;
   galleryImgs: (StaticImageData | string)[];
   ratioClass?: string;
-  href: string;
+  href?: Route<string>;
   imageClass?: string;
   galleryClass?: string;
   navigation?: boolean;
@@ -72,7 +72,7 @@ export default function GallerySlider({
         {/* Main image */}
         <div className={`w-full overflow-hidden ${galleryClass}`}>
           <Link
-            href={href}
+            href={href || "/"}
             className={`flex items-center justify-center ${ratioClass}`}
           >
             <AnimatePresence initial={false} custom={direction}>
@@ -101,14 +101,14 @@ export default function GallerySlider({
         <>
           {/* Buttons */}
           {loaded && navigation && (
-            <div className="transition-opacity opacity-0 group-hover/cardGallerySlider:opacity-100 ">
+            <div className="opacity-0 group-hover/cardGallerySlider:opacity-100 transition-opacity ">
               {index > 0 && (
                 <button
                   className="absolute w-8 h-8 start-3 top-[calc(50%-16px)] bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-6000 dark:hover:border-neutral-500 rounded-full flex items-center justify-center hover:border-neutral-300 focus:outline-none z-10"
                   style={{ transform: "translate3d(0, 0, 0)" }}
                   onClick={() => changePhotoId(index - 1)}
                 >
-                  <ChevronLeftIcon className="w-4 h-4 rtl:rotate-180" />
+                  <ChevronLeftIcon className="h-4 w-4 rtl:rotate-180" />
                 </button>
               )}
               {index + 1 < images.length && (
@@ -117,14 +117,14 @@ export default function GallerySlider({
                   style={{ transform: "translate3d(0, 0, 0)" }}
                   onClick={() => changePhotoId(index + 1)}
                 >
-                  <ChevronRightIcon className="w-4 h-4 rtl:rotate-180" />
+                  <ChevronRightIcon className="h-4 w-4 rtl:rotate-180" />
                 </button>
               )}
             </div>
           )}
 
           {/* Bottom Nav bar */}
-          <div className="absolute inset-x-0 bottom-0 h-10 rounded-b-lg opacity-50 bg-gradient-to-t from-neutral-900"></div>
+          <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-neutral-900 opacity-50 rounded-b-lg"></div>
           <div className="flex items-center justify-center absolute bottom-2 left-1/2 transform -translate-x-1/2 space-x-1.5 rtl:space-x-reverse">
             {images.map((_, i) => (
               <button

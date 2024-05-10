@@ -1,22 +1,19 @@
-// import { Route } from "@/routers/types";
+import { Route } from "@/routers/types";
 import { StaticImageData } from "next/image";
 
 //  ######  CustomLink  ######## //
 export interface CustomLink {
   label: string;
-  href: String;
+  href: Route;
   targetBlank?: boolean;
 }
 
 //  ##########  PostDataType ######## //
 export interface TaxonomyType {
-  posts_id: any;
-  slice(arg0: number, arg1: number): unknown;
-  categories_id: any;
   id: string | number;
   name: string;
-  href: String;
-  count?: number | string;
+  href: Route;
+  count?: number;
   thumbnail?: string | StaticImageData;
   desc?: string;
   color?: TwMainColor | string;
@@ -31,32 +28,32 @@ export interface PostAuthorType {
   avatar: string | StaticImageData;
   bgImage?: string | StaticImageData;
   email?: string;
-  count: number | string;
+  count: number;
   desc: string;
   jobName: string;
-  href: String;
+  href: Route;
 }
 
 export interface PostDataType {
   id: string | number;
   author: PostAuthorType;
   date: string;
-  href: String;
+  href: Route;
   categories: TaxonomyType[];
   title: string;
   featuredImage: string | StaticImageData;
   desc?: string;
   like: {
-    count: number | string;
-    isLiked: boolean | string;
+    count: number;
+    isLiked: boolean;
   };
   bookmark: {
-    count: number | string;
-    isBookmarked: boolean | string;
+    count: number;
+    isBookmarked: boolean;
   };
-  commentCount: number | string;
-  viewdCount: number | string;
-  readingTime: number | string;
+  commentCount: number;
+  viewdCount: number;
+  readingTime: number;
   postType: "standard" | "video" | "gallery" | "audio";
   videoUrl?: string;
   audioUrl?: string | string[];

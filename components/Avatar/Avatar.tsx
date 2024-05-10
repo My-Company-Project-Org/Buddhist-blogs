@@ -25,7 +25,7 @@ const Avatar: FC<AvatarProps> = ({
   imgUrl,
   userName,
 }) => {
-  const name = userName || "John Doe";
+  const name = userName;
 
   const [url, setUrl] = useState(imgUrl);
 
@@ -47,7 +47,7 @@ const Avatar: FC<AvatarProps> = ({
           fill
           sizes="100px"
           className="absolute inset-0 object-cover w-full h-full"
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${url}`}
+          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${url.id}`}
           alt={name}
         />
       )}

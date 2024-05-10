@@ -56,7 +56,7 @@ const Card18: FC<Card18Props> = ({
             sizes="(max-width: 600px) 480px, 800px"
             alt="featured"
             className="object-cover w-full h-full rounded-xl"
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${featuredImage}`}
+            src={featuredImage}
             fill
           />
           <PostTypeFeaturedIcon

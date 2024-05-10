@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-// import PostCardSaveAction from "@/components/PostCardSaveAction/PostCardSaveAction";
+import PostCardSaveAction from "@/components/PostCardSaveAction/PostCardSaveAction";
 import { PostDataType } from "@/data/types";
-// import PostCardLikeAndComment from "@/components/PostCardLikeAndComment/PostCardLikeAndComment";
+import PostCardLikeAndComment from "@/components/PostCardLikeAndComment/PostCardLikeAndComment";
 import CategoryBadgeList from "@/components/CategoryBadgeList/CategoryBadgeList";
 import PostTypeFeaturedIcon from "@/components/PostTypeFeaturedIcon/PostTypeFeaturedIcon";
 import Link from "next/link";
@@ -46,7 +46,7 @@ const Card2: FC<Card2Props> = ({
           iconSize="w-4 h-4"
         />
         <CategoryBadgeList
-          className="absolute flex flex-wrap space-x-2 top-3 left-3"
+          className="flex flex-wrap space-x-2 absolute top-3 left-3"
           itemClass="relative"
           categories={categories}
         />
@@ -54,7 +54,7 @@ const Card2: FC<Card2Props> = ({
 
       <Link href={href} className="absolute inset-0" />
 
-      <div className="flex flex-col px-4 mt-5">
+      <div className="mt-5 px-4 flex flex-col">
         <div className="space-y-3">
           <PostCardMeta
             className="relative text-sm"
@@ -78,10 +78,10 @@ const Card2: FC<Card2Props> = ({
           </span>
         </div>
         <div className="my-5 border-t border-neutral-200 dark:border-neutral-700"></div>
-        {/* <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <PostCardLikeAndComment className="relative" />
           <PostCardSaveAction className="relative" readingTime={readingTime} />
-        </div> */}
+        </div>
       </div>
     </div>
   );

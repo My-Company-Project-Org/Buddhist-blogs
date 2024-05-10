@@ -18,6 +18,8 @@ const CardAuthorBox2: FC<CardAuthorBox2Props> = ({
   return (
     <Link
       href={href}
+      // href={`/${locale}/post/${post.slug}`}
+      href={`/author/${href}`}
       className={`nc-CardAuthorBox2 flex flex-col overflow-hidden bg-white dark:bg-neutral-800 rounded-3xl ${className}`}
     >
       <div className="relative flex-shrink-0 ">
@@ -25,14 +27,14 @@ const CardAuthorBox2: FC<CardAuthorBox2Props> = ({
           <NcImage
             alt="author"
             containerClassName="flex aspect-w-7 aspect-h-5 w-full h-0"
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${bgImage}` || ""}
+            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${bgImage}`}
             fill
             sizes="(max-width: 600px) 480px, 33vw"
           />
         </div>
         <div className="absolute flex top-3 inset-x-3">
           <div className="flex items-center justify-center px-4 py-1 text-xs font-medium leading-none rounded-full bg-neutral-100 dark:bg-neutral-800">
-            {count}
+            {count}{" "}
             <ArrowRightIcon className="w-5 h-5 text-yellow-600 ms-3 rtl:rotate-180" />
           </div>
         </div>
