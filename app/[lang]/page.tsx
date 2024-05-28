@@ -19,7 +19,7 @@ const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
 const PageHome = async ({}) => {
   const getAllAuthors = async () => {
     try {
-      const authors = await directus.items("posts").readByQuery({
+      const authors = await directus.items("directus_users").readByQuery({
         fields: ["*"],
       });
 
@@ -31,6 +31,7 @@ const PageHome = async ({}) => {
   };
 
   const authors = await getAllAuthors();
+  console.log(authors);
 
   return (
     <div className="relative nc-PageHome">
