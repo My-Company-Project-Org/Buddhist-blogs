@@ -10,7 +10,7 @@ export interface SectionSliderNewAuthorsProps {
   className?: string;
   heading: string;
   subHeading: string;
-  authors: PostAuthorType[];
+  author: PostAuthorType[];
   itemPerRow?: number;
 }
 
@@ -18,7 +18,7 @@ const SectionSliderNewAuthors: FC<SectionSliderNewAuthorsProps> = ({
   heading = "Suggestions for discovery",
   subHeading = "Popular places to recommends for you",
   className = "",
-  authors,
+  author,
   itemPerRow = 5,
 }) => {
   return (
@@ -26,9 +26,10 @@ const SectionSliderNewAuthors: FC<SectionSliderNewAuthorsProps> = ({
       <Heading desc={subHeading} isCenter>
         {heading}
       </Heading>
+
       <MySlider
         itemPerRow={itemPerRow}
-        data={authors}
+        data={author}
         renderItem={(item, index) => (
           <CardAuthorBox2 key={index} author={item} />
         )}

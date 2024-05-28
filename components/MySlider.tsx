@@ -21,6 +21,7 @@ export default function MySlider<T>({
   renderItem = () => <div></div>,
   arrowBtnClass = "top-1/2 -translate-y-1/2",
 }: MySliderProps<T>) {
+  // console.log(data);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [numberOfItems, setNumberOfitem] = useState(0);
@@ -84,7 +85,7 @@ export default function MySlider<T>({
           <div className={`flow-root overflow-hidden rounded-xl`}>
             <motion.ul
               initial={false}
-              className="relative whitespace-nowrap -mx-2 xl:-mx-4 "
+              className="relative -mx-2 whitespace-nowrap xl:-mx-4 "
             >
               <AnimatePresence initial={false} custom={direction}>
                 {data.map((item, indx) => (

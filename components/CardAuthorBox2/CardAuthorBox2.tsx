@@ -15,11 +15,11 @@ const CardAuthorBox2: FC<CardAuthorBox2Props> = ({
   author,
 }) => {
   const { displayName, href, avatar, jobName, count, bgImage } = author;
+  const authorHref = { pathname: `/en/author/${href}` };
+
   return (
     <Link
-      href={href}
-      // href={`/${locale}/post/${post.slug}`}
-      href={`/author/${href}`}
+      href={authorHref}
       className={`nc-CardAuthorBox2 flex flex-col overflow-hidden bg-white dark:bg-neutral-800 rounded-3xl ${className}`}
     >
       <div className="relative flex-shrink-0 ">
