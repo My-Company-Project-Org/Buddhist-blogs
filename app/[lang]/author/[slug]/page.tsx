@@ -1,15 +1,15 @@
 // "use client";
 
 // import React, { useState } from "react";
-import { DEMO_POSTS } from "@/data/posts";
-import { PostDataType, PostAuthorType } from "@/data/types";
-import Pagination from "@/components/Pagination/Pagination";
-import ButtonPrimary from "@/components/Button/ButtonPrimary";
+// import { DEMO_POSTS } from "@/data/posts";
+//  import { PostDataType, PostAuthorType } from "@/data/types";
+// import Pagination from "@/components/Pagination/Pagination";
+// import ButtonPrimary from "@/components/Button/ButtonPrimary";
 // import { DEMO_AUTHORS } from "@/data/authors";
 // import { DEMO_CATEGORIES } from "@/data/taxonomies";
 // import Nav from "@/components/Nav/Nav";
 // import NavItem from "@/components/NavItem/NavItem";
-import SocialsList from "@/components/SocialsList/SocialsList";
+// import SocialsList from "@/components/SocialsList/SocialsList";
 // import ArchiveFilterListBox from "@/components/ArchiveFilterListBox/ArchiveFilterListBox";
 // import SectionSubscribe2 from "@/components/SectionSubscribe2/SectionSubscribe2";
 import Card11 from "@/components/Card11/Card11";
@@ -18,17 +18,15 @@ import Card11 from "@/components/Card11/Card11";
 // import ButtonSecondary from "@/components/Button/ButtonSecondary";
 // import SectionSliderNewAuthors from "@/components/SectionSliderNewAthors/SectionSliderNewAuthors";
 import NcImage from "@/components/NcImage/NcImage";
-import { GlobeAltIcon, ShareIcon } from "@heroicons/react/24/outline";
-import { avatarImgs } from "@/contains/fakeData";
+// import { GlobeAltIcon, ShareIcon } from "@heroicons/react/24/outline";
+// import { avatarImgs } from "@/contains/fakeData";
 import VerifyIcon from "@/components/VerifyIcon";
 // import FollowButton from "@/components/FollowButton";
 // import NcDropDown from "@/components/NcDropDown/NcDropDown";
 // import { SOCIALS_DATA } from "@/components/SocialsShare/SocialsShare";
-import AccountActionDropdown from "@/components/AccountActionDropdown/AccountActionDropdown";
+// import AccountActionDropdown from "@/components/AccountActionDropdown/AccountActionDropdown";
 import Image from "next/image";
 import directus from "@/lib/directus";
-
-const posts: PostDataType[] = DEMO_POSTS.filter((_, i) => i < 12);
 
 const TABS = ["Articles", "Favorites", "Saved"];
 
@@ -40,39 +38,81 @@ const PageAuthor = async ({
     lang: string;
   };
 }) => {
-  console.log(slug);
-  // const getAllAuthors = async () => {
-  //   try {
-  //     const authors = await directus.items("posts").readByQuery({
-  //       fields: [
-  //         "*",
-  //         "author.*",
-  //         // "first_name",
-  //         // "last_name",
-  //         // "displayName",
-  //         // "email",
-  //         // "gender",
-  //         // "avatar.id",
-  //         // "avatar.width",
-  //         // "avatar.height",
-  //         // "count",
-  //         // "href",
-  //         // "desc",
-  //         // "jobName",
-  //         // "bgImage",
-  //       ],
-  //     });
+  // console.log(slug);
 
-  //     return authors.data;
-  //   } catch (error) {
-  //     console.log(error);
-  //     throw new Error("Error fetching post");
-  //   }
-  // };
+  const getAuthorDetails = async () => {
+    try {
+      const authorDetails = await directus.items("directus_users").readByQuery({
+        filter: {
+          slug: {
+            _eq: slug,
+          },
+        },
+        fields: [
+          "first_name",
+          "last_name",
+          "email",
+          "bgImage",
+          "description",
+          "slug",
+          "avatar.id",
+          "avatar.width",
+          "avatar.height",
+        ],
+      });
 
-  // const authors = await getAllAuthors();
+      if (
+        authorDetails &&
+        authorDetails.data &&
+        authorDetails.data.length > 0
+      ) {
+        return authorDetails.data[0];
+      } else {
+        throw new Error("Author details not found");
+      }
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching authorDetails");
+    }
+  };
 
-  // console.log(authors);
+  const authorData = await getAuthorDetails();
+
+  // console.log(authorData);
+
+  const getAllPostsForAuthor = async () => {
+    try {
+      const posts = await directus.items("post").readByQuery({
+        filter: {
+          author: {
+            slug: {
+              _eq: slug,
+            },
+          },
+        },
+        fields: [
+          "*",
+          "author.displayName",
+          "author.slug",
+          "author.avatar.id",
+          "category.title",
+          "category.slug",
+          "category.color",
+        ],
+      });
+
+      return posts.data;
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching posts");
+    }
+  };
+
+  const posts = (await getAllPostsForAuthor()) || [];
+
+  //  const posts: PostDataType[] = DEMO_POSTS.filter((_, i) => i < 12);
+
+  // console.log(posts);
 
   return (
     <div className={`nc-PageAuthor `}>
@@ -83,7 +123,7 @@ const PageAuthor = async ({
             alt=""
             containerClassName="absolute inset-0"
             sizes="(max-width: 1280px) 100vw, 1536px"
-            src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${authorData.bgImage}`}
             className="object-cover w-full h-full"
             fill
             priority
@@ -95,7 +135,7 @@ const PageAuthor = async ({
               <div className="relative z-0 inline-flex items-center justify-center flex-shrink-0 w-20 h-20 overflow-hidden text-xl font-semibold uppercase rounded-full shadow-2xl wil-avatar text-neutral-100 lg:text-2xl lg:w-36 lg:h-36 ring-4 ring-white dark:ring-0">
                 <Image
                   alt="Avatar"
-                  src={avatarImgs[2]}
+                  src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${authorData.avatar.id}`}
                   fill
                   className="object-cover"
                   priority
@@ -107,27 +147,27 @@ const PageAuthor = async ({
             <div className="flex-grow pt-5 md:pt-1 lg:ml-6 xl:ml-12">
               <div className="max-w-screen-sm space-y-3.5 ">
                 <h2 className="inline-flex items-center text-2xl font-semibold sm:text-3xl lg:text-4xl">
-                  <span>Dony Herrera</span>
+                  <span>
+                    {authorData.first_name} {authorData.last_name}
+                  </span>
                   <VerifyIcon
                     className="ml-2"
                     iconClass="w-6 h-6 sm:w-7 sm:h-7 xl:w-8 xl:h-8"
                   />
                 </h2>
                 <span className="block text-sm text-neutral-500 dark:text-neutral-400">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Porro autem totam iure quibusdam asperiores numquam quae animi
-                  assumenda necessitatibus consectetur.
+                  {authorData.description}
                 </span>
                 <a
                   href="#"
                   className="flex items-center text-xs font-medium space-x-2.5 rtl:space-x-reverse cursor-pointer text-neutral-500 dark:text-neutral-400 truncate"
                 >
                   {/* <GlobeAltIcon className="flex-shrink-0 w-4 h-4" /> */}
-                  <span className="truncate text-neutral-700 dark:text-neutral-300">
+                  {/* <span className="truncate text-neutral-700 dark:text-neutral-300">
                     https://example.com/me
-                  </span>
+                  </span> */}
                 </a>
-                <SocialsList itemClass="block w-7 h-7" />
+                {/* <SocialsList itemClass="block w-7 h-7" /> */}
               </div>
             </div>
           </div>
@@ -164,10 +204,10 @@ const PageAuthor = async ({
           </div>
 
           {/* PAGINATION */}
-          <div className="flex flex-col mt-12 space-y-5 lg:mt-16 sm:space-y-0 sm:space-x-3 sm:flex-row sm:justify-between sm:items-center">
+          {/* <div className="flex flex-col mt-12 space-y-5 lg:mt-16 sm:space-y-0 sm:space-x-3 sm:flex-row sm:justify-between sm:items-center">
             <Pagination />
             <ButtonPrimary>Show me more</ButtonPrimary>
-          </div>
+          </div> */}
         </main>
 
         {/* === SECTION 5 === */}

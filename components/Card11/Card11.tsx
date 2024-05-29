@@ -1,10 +1,10 @@
 "use client";
 
 import React, { FC, useState } from "react";
-import PostCardSaveAction from "@/components/PostCardSaveAction/PostCardSaveAction";
+// import PostCardSaveAction from "@/components/PostCardSaveAction/PostCardSaveAction";
 import { PostDataType } from "@/data/types";
 import CategoryBadgeList from "@/components/CategoryBadgeList/CategoryBadgeList";
-import PostCardLikeAndComment from "@/components/PostCardLikeAndComment/PostCardLikeAndComment";
+// import PostCardLikeAndComment from "@/components/PostCardLikeAndComment/PostCardLikeAndComment";
 import PostCardMeta from "@/components/PostCardMeta/PostCardMeta";
 import PostFeaturedMedia from "@/components/PostFeaturedMedia/PostFeaturedMedia";
 import Link from "next/link";
@@ -19,10 +19,11 @@ export interface Card11Props {
 const Card11: FC<Card11Props> = ({
   className = "h-full",
   post,
+
   hiddenAuthor = false,
   ratio = "aspect-w-4 aspect-h-3",
 }) => {
-  const { title, href, categories, date } = post;
+  const { title, category, date_created, slug } = post;
 
   const [isHover, setIsHover] = useState(false);
 
@@ -40,26 +41,26 @@ const Card11: FC<Card11Props> = ({
           <PostFeaturedMedia post={post} isHover={isHover} />
         </div>
       </div>
-      <Link href={href} className="absolute inset-0"></Link>
-      <span className="absolute top-3 inset-x-3 z-10">
-        <CategoryBadgeList categories={categories} />
+      <Link href={slug} className="absolute inset-0"></Link>
+      <span className="absolute z-10 top-3 inset-x-3">
+        <CategoryBadgeList category={category} />
       </span>
 
-      <div className="p-4 flex flex-col space-y-3">
-        {/* {!hiddenAuthor ? (
+      <div className="flex flex-col p-4 space-y-3">
+        {!hiddenAuthor ? (
           <PostCardMeta meta={post} />
         ) : (
-          <span className="text-xs text-neutral-500">{date}</span>
-        )} */}
-        <h3 className="nc-card-title block text-base font-semibold text-neutral-900 dark:text-neutral-100">
+          <span className="text-xs text-neutral-500">{date_created}</span>
+        )}
+        <h3 className="block text-base font-semibold nc-card-title text-neutral-900 dark:text-neutral-100">
           <span className="line-clamp-2" title={title}>
             {title}
           </span>
         </h3>
-        {/* <div className="flex items-end justify-between mt-auto">
-          <PostCardLikeAndComment className="relative" />
-          <PostCardSaveAction className="relative" />
-        </div> */}
+        <div className="flex items-end justify-between mt-auto">
+          {/* <PostCardLikeAndComment className="relative" />
+          <PostCardSaveAction className="relative" /> */}
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ export interface AvatarProps {
   sizeClass?: string;
   radius?: string;
   imgUrl?: string | StaticImageData;
-  userName?: string;
+  userName: string;
 }
 
 const _setBgColor = (name: string) => {
@@ -27,7 +27,7 @@ const Avatar: FC<AvatarProps> = ({
 }) => {
   const name = userName;
 
-  const [url, setUrl] = useState(imgUrl);
+  const [url, setUrl] = useState<any | StaticImageData | undefined>(imgUrl);
 
   useEffect(() => {
     // FOR DEMO

@@ -14,8 +14,8 @@ const CardAuthorBox2: FC<CardAuthorBox2Props> = ({
   className = "",
   author,
 }) => {
-  const { displayName, href, avatar, jobName, count, bgImage } = author;
-  const authorHref = { pathname: `/en/author/${href}` };
+  const { displayName, avatar, jobName, count, bgImage, slug } = author;
+  const authorHref = { pathname: `/en/author/${slug}` };
 
   return (
     <Link

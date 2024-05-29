@@ -1,29 +1,42 @@
 import React from "react";
-import BackgroundSection from "@/components/BackgroundSection/BackgroundSection";
+// import BackgroundSection from "@/components/BackgroundSection/BackgroundSection";
 import SectionSliderNewAuthors from "@/components/SectionSliderNewAthors/SectionSliderNewAuthors";
-import { DEMO_POSTS, DEMO_POSTS_GALLERY } from "@/data/posts";
-import { DEMO_CATEGORIES } from "@/data/taxonomies";
-import { DEMO_AUTHORS } from "@/data/authors";
-import SectionSliderNewCategories from "@/components/SectionSliderNewCategories/SectionSliderNewCategories";
-import SectionAds from "@/components/Sections/SectionAds";
-import SectionMagazine7 from "@/components/Sections/SectionMagazine7";
+// import { DEMO_POSTS, DEMO_POSTS_GALLERY } from "@/data/posts";
+// import { DEMO_CATEGORIES } from "@/data/taxonomies";
+// import { DEMO_AUTHORS } from "@/data/authors";
+// import SectionSliderNewCategories from "@/components/SectionSliderNewCategories/SectionSliderNewCategories";
+// import SectionAds from "@/components/Sections/SectionAds";
+// import SectionMagazine7 from "@/components/Sections/SectionMagazine7";
 import SectionBecomeAnAuthor from "@/components/SectionBecomeAnAuthor/SectionBecomeAnAuthor";
-import SectionSubscribe2 from "@/components/SectionSubscribe2/SectionSubscribe2";
-import SectionVideos from "@/components/Sections/SectionVideos";
-import SectionMagazine2 from "@/components/Sections/SectionMagazine2";
+// import SectionSubscribe2 from "@/components/SectionSubscribe2/SectionSubscribe2";
+// import SectionVideos from "@/components/Sections/SectionVideos";
+// import SectionMagazine2 from "@/components/Sections/SectionMagazine2";
 import directus from "@/lib/directus";
 //import { PostAuthorType } from "@/data/types";
 
-const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
+// const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
 
 const PageHome = async ({}) => {
   const getAllAuthors = async () => {
     try {
       const authors = await directus.items("directus_users").readByQuery({
-        fields: ["*"],
+        fields: [
+          "id",
+          "first_name",
+          "last_name",
+          "email",
+          "slug",
+          "displayName",
+          "description",
+          "jobName",
+          "bgImage",
+          "avatar.id",
+          "avatar.width",
+          "avatar.height",
+        ],
       });
 
-      return authors;
+      return authors.data;
     } catch (error) {
       console.log(error);
       throw new Error("Error fetching post");
@@ -31,18 +44,18 @@ const PageHome = async ({}) => {
   };
 
   const authors = await getAllAuthors();
-  console.log(authors);
+  // console.log(authors);
 
   return (
     <div className="relative nc-PageHome">
       <div className="container relative">
         <div className="relative py-16">
-          <BackgroundSection />
+          {/* <BackgroundSection /> */}
           <SectionBecomeAnAuthor />
         </div>
 
         <div className="relative py-16">
-          <BackgroundSection />
+          {/* <BackgroundSection /> */}
           {authors && authors.length > 0 ? (
             <SectionSliderNewAuthors
               heading="Newest authors"
@@ -54,7 +67,7 @@ const PageHome = async ({}) => {
           )}
         </div>
 
-        <SectionSliderNewCategories
+        {/* <SectionSliderNewCategories
           className="py-16 lg:py-28"
           heading="Top trending topics"
           subHeading="Discover 233 topics"
@@ -79,7 +92,7 @@ const PageHome = async ({}) => {
 
         <SectionVideos className="py-16 lg:py-28" />
 
-        <SectionSubscribe2 className="pt-16 lg:pt-28" />
+        <SectionSubscribe2 className="pt-16 lg:pt-28" /> */}
       </div>
     </div>
   );

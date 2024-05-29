@@ -20,8 +20,7 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
   post,
   isHover = false,
 }) => {
-  const { featuredImage, postType, videoUrl, galleryImgs, audioUrl, id, href } =
-    post;
+  const { postType, videoUrl, galleryImgs, audioUrl, slug, image } = post;
 
   const isPostMedia = () => postType === "video" || postType === "audio";
 
@@ -29,7 +28,7 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
     if (!galleryImgs) return null;
     return (
       <GallerySlider
-        href={href}
+        href={slug}
         galleryImgs={galleryImgs}
         className="absolute inset-0 z-10"
         galleryClass="absolute inset-0"
@@ -58,7 +57,7 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
     return isPostMedia() ? (
       <span className="absolute inset-0 flex items-center justify-center ">
         <PostTypeFeaturedIcon
-          className="hover:scale-105 transform cursor-pointer transition-transform"
+          className="transition-transform transform cursor-pointer hover:scale-105"
           postType={postType}
         />
       </span>
@@ -72,14 +71,14 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
           alt="featured"
           fill
           className="object-cover"
-          src={featuredImage}
+          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${image}?key=optimised`}
           sizes="(max-width: 600px) 480px, 800px"
         />
       )}
       {renderContent()}
       {postType !== "gallery" && (
         <Link
-          href={href}
+          href={slug}
           className={`block absolute inset-0 ${
             !postType || postType === "standard"
               ? "bg-black/20 transition-opacity opacity-0 group-hover:opacity-100"

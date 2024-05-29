@@ -11,8 +11,8 @@ export interface CustomLink {
 //  ##########  PostDataType ######## //
 export interface TaxonomyType {
   id: string | number;
-  name: string;
-  href: Route;
+  title: string;
+  slug: Route;
   count?: number;
   thumbnail?: string | StaticImageData;
   desc?: string;
@@ -31,17 +31,17 @@ export interface PostAuthorType {
   count: number;
   desc: string;
   jobName: string;
-  href: Route;
+  slug: Route;
 }
 
 export interface PostDataType {
   id: string | number;
   author: PostAuthorType;
   date: string;
-  href: Route;
-  categories: TaxonomyType[];
+  slug: Route;
+  category: TaxonomyType[];
   title: string;
-  featuredImage: string | StaticImageData;
+  image: string | StaticImageData;
   desc?: string;
   like: {
     count: number;
@@ -58,6 +58,7 @@ export interface PostDataType {
   videoUrl?: string;
   audioUrl?: string | string[];
   galleryImgs?: string[];
+  date_created: string;
 }
 
 export type TwMainColor =
