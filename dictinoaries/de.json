@@ -1,13 +1,16 @@
 {
-  "navigation": {
-    "links": {
-      "concept": "Städte",
-      "experience": "Erfahrungen"
-    }
+  "heroSection": {
+    "heroOne": "Abendessen ändern Sie Ihre Planungsbefugnisse",
+    "heroTwo": "Werden Sie Autor und teilen Sie Ihre tollen Geschichten",
+    "heroThree": "Werden Sie Autor und verdienen Sie zusätzliches Geld, indem Sie Artikel schreiben. Lesen und teilen Sie neue Perspektiven zu praktisch jedem Thema. Jeder ist willkommen.",
+    "heroButton": "Werde Autor"
   },
-  "buttons": {
-    "readMore": "Weiterlesen"
+
+  "authorsSection": {
+    "authorOne": "Neueste Autoren",
+    "authorTwo": "Begrüßen Sie zukünftige Creator-Potenziale"
   },
+
   "ctaCard": {
     "title": "Entdecken Sie mit mir die Welt!",
     "description": "Um Menschen zu helfen, die die Realität des Lebens verstehen und versuchen, Antworten auf verschiedene Probleme zu finden, die im praktischen Leben auftreten, veröffentliche ich diesen Blogartikel hier.",

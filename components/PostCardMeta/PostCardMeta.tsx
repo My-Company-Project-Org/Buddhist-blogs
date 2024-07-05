@@ -27,7 +27,7 @@ const PostCardMeta: FC<PostCardMetaProps> = ({
       className={`nc-PostCardMeta inline-flex items-center flex-wrap text-neutral-800 dark:text-neutral-200 ${className}`}
     >
       <Link
-        href={author.slug}
+        href={`/en/author/${author.slug}`}
         className="relative flex items-center space-x-2 rtl:space-x-reverse"
       >
         {!hiddenAvatar && (

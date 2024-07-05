@@ -13,30 +13,61 @@ import SectionBecomeAnAuthor from "@/components/SectionBecomeAnAuthor/SectionBec
 // import SectionMagazine2 from "@/components/Sections/SectionMagazine2";
 import directus from "@/lib/directus";
 //import { PostAuthorType } from "@/data/types";
+import { getDictionary } from "@/lib/getDictionary";
 
 // const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
 
-const PageHome = async ({}) => {
+const PageHome = async ({
+  params,
+}: {
+  params: {
+    lang: string;
+  };
+}) => {
   const getAllAuthors = async () => {
     try {
-      const authors = await directus.items("directus_users").readByQuery({
+      const authors = await directus.items("post").readByQuery({
         fields: [
           "id",
-          "first_name",
-          "last_name",
-          "email",
-          "slug",
-          "displayName",
-          "description",
-          "jobName",
-          "bgImage",
-          "avatar.id",
-          "avatar.width",
-          "avatar.height",
+          "status",
+          "title",
+          "category",
+          "bookmark.*",
+
+          // "id",
+          // "first_name",
+          // "last_name",
+          // "email",
+          // "slug",
+          // "displayName",
+          // "description",
+          // "jobName",
+          // "bgImage",
+          // "avatar.id",
+          // "avatar.width",
+          // "avatar.height",
+          // "translations.jobName",
+          // "translations.displayName",
+          // "translations.description",
         ],
       });
 
-      return authors.data;
+      const authorsData = authors.data;
+      console.log(authorsData);
+
+      // if (locale === "en") {
+      //   return authorsData;
+      // } else {
+      //   const localisedPostData = {
+      //     ...authorsData,
+      //     jobName: authorsData?.translations?.[0]?.jobName,
+      //     description: authorsData?.translations?.[0]?.description,
+      //   };
+
+      //   return localisedPostData;
+      // }
+
+      return authorsData;
     } catch (error) {
       console.log(error);
       throw new Error("Error fetching post");
@@ -44,27 +75,28 @@ const PageHome = async ({}) => {
   };
 
   const authors = await getAllAuthors();
-  // console.log(authors);
+  console.log(authors);
+
+  const locale = params.lang;
+
+  const dictionary = await getDictionary(locale);
 
   return (
     <div className="relative nc-PageHome">
       <div className="container relative">
         <div className="relative py-16">
           {/* <BackgroundSection /> */}
-          <SectionBecomeAnAuthor />
+          <SectionBecomeAnAuthor locale={locale} />
         </div>
 
         <div className="relative py-16">
           {/* <BackgroundSection /> */}
-          {authors && authors.length > 0 ? (
-            <SectionSliderNewAuthors
-              heading="Newest authors"
-              subHeading="Say hello to future creator potentials"
-              author={authors}
-            />
-          ) : (
-            <div>No authors available</div>
-          )}
+
+          <SectionSliderNewAuthors
+            heading={dictionary.authorsSection.authorOne}
+            subHeading={dictionary.authorsSection.authorTwo}
+            author={authors}
+          />
         </div>
 
         {/* <SectionSliderNewCategories

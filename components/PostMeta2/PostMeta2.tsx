@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 import Avatar from "@/components/Avatar/Avatar";
 import { PostDataType } from "@/data/types";
-import { DEMO_POSTS } from "@/data/posts";
+// import { DEMO_POSTS } from "@/data/posts";
 import Link from "next/link";
 
-const metaDemo: PostMeta2Props["meta"] = DEMO_POSTS[0];
+// const metaDemo: PostMeta2Props["meta"] = DEMO_POSTS[0];
 
 export interface PostMeta2Props {
   className?: string;
-  meta?: Pick<PostDataType, "date" | "author" | "categories" | "readingTime">;
+  post: PostDataType;
   hiddenCategories?: boolean;
   size?: "large" | "normal";
   avatarRounded?: string;
@@ -16,12 +16,12 @@ export interface PostMeta2Props {
 
 const PostMeta2: FC<PostMeta2Props> = ({
   className = "leading-none",
-  meta = metaDemo,
+  post,
   hiddenCategories = false,
   size = "normal",
   avatarRounded,
 }) => {
-  const { date, author, categories, readingTime } = meta;
+  const { date, author, categories, readingTime } = post;
   return (
     <div
       className={`nc-PostMeta2 flex items-center flex-wrap text-neutral-700 text-left dark:text-neutral-200 ${
@@ -29,7 +29,7 @@ const PostMeta2: FC<PostMeta2Props> = ({
       } ${className}`}
     >
       <Link
-        href={author.href}
+        href={`/en/author/${author.slug}`}
         className="flex items-center space-x-2 rtl:space-x-reverse"
       >
         <Avatar
@@ -45,7 +45,10 @@ const PostMeta2: FC<PostMeta2Props> = ({
       </Link>
       <div className="ms-3">
         <div className="flex items-center">
-          <Link href={author.href} className="block font-semibold">
+          <Link
+            href={`/en/author/${author.slug}`}
+            className="block font-semibold"
+          >
             {author.displayName}
           </Link>
 
@@ -65,10 +68,12 @@ const PostMeta2: FC<PostMeta2Props> = ({
           )}
         </div>
         <div className="text-xs mt-[6px]">
-          <span className="text-neutral-700 dark:text-neutral-300">{date}</span>
+          <span className="text-neutral-700 dark:text-neutral-300">
+            Pending Date
+          </span>
           <span className="mx-2 font-semibold">·</span>
           <span className="text-neutral-700 dark:text-neutral-300">
-            {readingTime} min read
+            Pending min read
           </span>
         </div>
       </div>

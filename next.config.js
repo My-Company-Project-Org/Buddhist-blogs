@@ -11,7 +11,7 @@ const nextConfig = {
   images: {
     domains: [
       "127.0.0.1",
-      "directus-production-1e20.up.railway.app",
+      "directus-production-1781.up.railway.app",
       "images.pexels.com",
       "images.unsplash.com",
     ],

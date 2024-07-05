@@ -1,12 +1,13 @@
 {
-  "navigation": {
-    "links": {
-      "concept": "Concepts",
-      "experience": "Experiences"
-    }
+  "heroSection": {
+    "heroOne": "SUPPER CHANGE YOUR PLANNING POWERS",
+    "heroTwo": "Become an author and share your great stories",
+    "heroThree": "Become an author you can earn extra income by writing articles. Read and share new perspectives on just about any topic. Everyone’s welcome.",
+    "heroButton": "Become an author"
   },
-  "buttons": {
-    "readMore": "Read More"
+  "authorsSection": {
+    "authorOne": "Newest authors",
+    "authorTwo": "Say hello to future creator potentials"
   },
   "ctaCard": {
     "title": "Explore the world with me!",

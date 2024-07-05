@@ -42,7 +42,7 @@ const PageAuthor = async ({
 
   const getAuthorDetails = async () => {
     try {
-      const authorDetails = await directus.items("directus_users").readByQuery({
+      const authorDetails = await directus.items("post").readByQuery({
         filter: {
           slug: {
             _eq: slug,
@@ -58,6 +58,7 @@ const PageAuthor = async ({
           "avatar.id",
           "avatar.width",
           "avatar.height",
+          "translations.*",
         ],
       });
 
