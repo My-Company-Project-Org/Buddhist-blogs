@@ -1,29 +1,32 @@
+import { PostDataType } from "@/data/types";
 import React, { FC } from "react";
 import Badge from "@/components/Badge/Badge";
 
 export interface CategoryBadgeListProps {
   className?: string;
   itemClass?: string;
-  category: any;
+  categories: PostDataType["categories"];
 }
 
 const CategoryBadgeList: FC<CategoryBadgeListProps> = ({
   className = "flex flex-wrap space-x-2",
   itemClass,
-  category,
+  categories,
 }) => {
   return (
     <div
       className={`nc-CategoryBadgeList ${className}`}
       data-nc-id="CategoryBadgeList"
     >
-      <Badge
-        key={category.id}
-        className={itemClass}
-        name={category.title}
-        href={category.slug}
-        color={category.color as any}
-      />
+      {categories.map((item: any, index: any) => (
+        <Badge
+          className={itemClass}
+          key={index}
+          name={item.category_id.title}
+          slug={item.category_id.slug}
+          color={item.category_id.color as any}
+        />
+      ))}
     </div>
   );
 };

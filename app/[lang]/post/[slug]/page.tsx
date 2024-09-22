@@ -14,8 +14,6 @@ const PostPage = async ({
     lang: string;
   };
 }) => {
-  console.log(slug);
-
   const getPostsDetails = async () => {
     try {
       const post = await directus.items("post").readByQuery({
@@ -25,18 +23,21 @@ const PostPage = async ({
           },
         },
         fields: [
-          "*",
+          "slug",
+          "title",
+          "date_created",
+          "description",
           "author.displayName",
           "author.slug",
+          "author.avatar",
+          "categories.category_id.*",
           "author.avatar.id",
-          "category.title",
-          "category.slug",
-          "category.color",
-          "image.id",
+          "image",
+          "body",
         ],
       });
 
-      return post.data[0];
+      return post.data;
     } catch (error) {
       console.log(error);
       throw new Error("Error fetching posts");
@@ -45,35 +46,42 @@ const PostPage = async ({
 
   const post = (await getPostsDetails()) || [];
 
+  // console.log(post);
+
   return (
     <>
-      <div className={`nc-PageSingle pt-8 lg:pt-16`}>
-        <header className="container rounded-xl">
-          <div className="max-w-screen-md mx-auto">
-            <SingleHeader post={post} />
+      {post.map((post) => (
+        <>
+          <div className={`nc-PageSingle pt-8 lg:pt-16`}>
+            <header className="container rounded-xl">
+              <div className="max-w-screen-md mx-auto">
+                <SingleHeader post={post} />
+              </div>
+            </header>
+
+            {/* FEATURED IMAGE */}
+            <NcImage
+              alt="single"
+              containerClassName="container my-10 sm:my-12"
+              className="w-full rounded-xl"
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimised`}
+              width={630}
+              height={375}
+              sizes="(max-width: 1024px) 100vw, 800px"
+            />
           </div>
-        </header>
 
-        {/* FEATURED IMAGE */}
-        <NcImage
-          alt="single"
-          containerClassName="container my-10 sm:my-12"
-          className="w-full rounded-xl"
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image.id}?key=optimised`}
-          width={630}
-          height={375}
-          sizes="(max-width: 1024px) 100vw, 800px"
-        />
-      </div>
-      <div>
-        {/* SINGLE MAIN CONTENT */}
-        <div className="container mt-10">
-          <SingleContent post={post} />
-        </div>
+          <div>
+            {/* SINGLE MAIN CONTENT */}
+            <div className="container mt-10">
+              <SingleContent post={post} />
+            </div>
 
-        {/* RELATED POSTS */}
-        {/* <SingleRelatedPosts /> */}
-      </div>
+            {/* RELATED POSTS */}
+            {/* <SingleRelatedPosts /> */}
+          </div>
+        </>
+      ))}
     </>
   );
 };

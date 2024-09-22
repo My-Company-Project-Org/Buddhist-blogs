@@ -10,39 +10,50 @@ export interface CustomLink {
 
 //  ##########  PostDataType ######## //
 export interface TaxonomyType {
+  href: any;
   id: string | number;
-  title: string;
+  name: string;
   slug: Route;
   count?: number;
   thumbnail?: string | StaticImageData;
-  desc?: string;
+  description?: string;
   color?: TwMainColor | string;
   taxonomy: "category" | "tag";
 }
 
 export interface PostAuthorType {
+  slug: Route;
   id: string | number;
   firstName: string;
   lastName: string;
   displayName: string;
-  avatar: string | StaticImageData;
+  avatar: string | StaticImageData | any;
   bgImage?: string | StaticImageData;
   email?: string;
   count: number;
-  desc: string;
+  description: string;
   jobName: string;
-  slug: Route;
+  href: Route;
 }
 
 export interface PostDataType {
+  body(
+    body: any,
+    options: {
+      replace: (domNode: any) => import("react").JSX.Element | undefined;
+    }
+  ): string | JSX.Element | JSX.Element[];
+  map(
+    arg0: (item: any, index: any) => string | JSX.Element | JSX.Element[]
+  ): import("react").ReactNode;
   id: string | number;
   author: PostAuthorType;
-  date: string;
+  date_created: string;
   slug: Route;
-  category: TaxonomyType[];
+  categories: TaxonomyType[];
   title: string;
   image: string | StaticImageData;
-  desc?: string;
+  description?: string;
   like: {
     count: number;
     isLiked: boolean;
@@ -58,7 +69,6 @@ export interface PostDataType {
   videoUrl?: string;
   audioUrl?: string | string[];
   galleryImgs?: string[];
-  date_created: string;
 }
 
 export type TwMainColor =

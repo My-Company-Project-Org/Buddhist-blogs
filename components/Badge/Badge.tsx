@@ -7,15 +7,16 @@ export interface BadgeProps {
   className?: string;
   name: ReactNode;
   color?: TwMainColor;
-  href?: Route;
+  slug?: Route;
 }
 
 const Badge: FC<BadgeProps> = ({
   className = "relative",
   name,
   color = "blue",
-  href,
+  slug,
 }) => {
+  const categoriesHref = { pathname: `/en/categories/${slug}` };
   const getColorClass = (hasHover = true) => {
     switch (color) {
       case "pink":
@@ -58,9 +59,9 @@ const Badge: FC<BadgeProps> = ({
   const CLASSES =
     "nc-Badge  inline-flex px-2.5 py-1 rounded-full font-medium text-xs " +
     className;
-  return !!href ? (
+  return !!categoriesHref ? (
     <Link
-      href={href || "/"}
+      href={categoriesHref}
       className={`transition-colors hover:text-white duration-300 ${CLASSES} ${getColorClass()}`}
     >
       {name}

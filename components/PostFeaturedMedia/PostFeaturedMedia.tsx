@@ -22,6 +22,8 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
 }) => {
   const { postType, videoUrl, galleryImgs, audioUrl, slug, image } = post;
 
+  const postHref = { pathname: `/en/post/${slug}` };
+
   const isPostMedia = () => postType === "video" || postType === "audio";
 
   const renderGallerySlider = () => {
@@ -78,7 +80,7 @@ const PostFeaturedMedia: FC<PostFeaturedMediaProps> = ({
       {renderContent()}
       {postType !== "gallery" && (
         <Link
-          href={`/en/post/${slug}`}
+          href={postHref}
           className={`block absolute inset-0 ${
             !postType || postType === "standard"
               ? "bg-black/20 transition-opacity opacity-0 group-hover:opacity-100"

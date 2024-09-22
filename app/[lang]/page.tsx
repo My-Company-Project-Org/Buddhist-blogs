@@ -24,16 +24,80 @@ const PageHome = async ({
     lang: string;
   };
 }) => {
+  // const getAllAuthors = async () => {
+  //   try {
+  //     const authors = await directus.items("post").readByQuery({
+  //       fields: [
+  //         "id",
+  //         "status",
+  //         "title",
+  //         "category",
+  //         "bookmark.*",
+  //         "author.displayName",
+  //         "author.avatar",
+  //         "author.bgImage",
+  // "id",
+  // "first_name",
+  // "last_name",
+  // "email",
+  // "slug",
+  // "displayName",
+  // "description",
+  // "jobName",
+  // "bgImage",
+  // "avatar.id",
+  // "avatar.width",
+  // "avatar.height",
+  // "translations.jobName",
+  // "translations.displayName",
+  // "translations.description",
+  //   ],
+  // });
+
+  // console.log(authorsData);
+
+  // if (locale === "en") {
+  //   return authorsData;
+  // } else {
+  //   const localisedPostData = {
+  //     ...authorsData,
+  //     jobName: authorsData?.translations?.[0]?.jobName,
+  //     description: authorsData?.translations?.[0]?.description,
+  //   };
+
+  //   return localisedPostData;
+  // }
+
+  //     return authors.data;
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw new Error("Error fetching post");
+  //   }
+  // };
+
   const getAllAuthors = async () => {
     try {
-      const authors = await directus.items("post").readByQuery({
+      const authors = await directus.items("directus_users").readByQuery({
         fields: [
           "id",
-          "status",
-          "title",
-          "category",
-          "bookmark.*",
+          "first_name",
+          "last_name",
+          "displayName",
+          "email",
+          "avatar",
+          "bgImage",
+          "jobName",
+          "count",
+          "slug",
+          "desc",
 
+          // "status",
+          // "title",
+          // "category",
+          // "bookmark.*",
+          // "author.displayName",
+          // "author.avatar",
+          // "author.bgImage",
           // "id",
           // "first_name",
           // "last_name",
@@ -52,8 +116,7 @@ const PageHome = async ({
         ],
       });
 
-      const authorsData = authors.data;
-      console.log(authorsData);
+      // console.log(authorsData);
 
       // if (locale === "en") {
       //   return authorsData;
@@ -67,15 +130,16 @@ const PageHome = async ({
       //   return localisedPostData;
       // }
 
-      return authorsData;
+      return authors.data;
     } catch (error) {
       console.log(error);
       throw new Error("Error fetching post");
     }
   };
-
-  const authors = await getAllAuthors();
-  console.log(authors);
+  let authors = await getAllAuthors();
+  if (!authors) {
+    authors = [];
+  }
 
   const locale = params.lang;
 

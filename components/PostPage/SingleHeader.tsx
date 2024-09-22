@@ -4,6 +4,7 @@ import React, { FC } from "react";
 import CategoryBadgeList from "@/components/CategoryBadgeList/CategoryBadgeList";
 import SingleTitle from "./SingleTitle";
 import PostMeta2 from "@/components/PostMeta2/PostMeta2";
+import { PostDataType } from "@/data/types";
 // import SingleMetaAction2 from "./SingleMetaAction2";
 // import { DEMO_CATEGORIES } from "@/data/taxonomies";
 
@@ -11,7 +12,7 @@ export interface SingleHeaderProps {
   hiddenDesc?: boolean;
   titleMainClass?: string;
   className?: string;
-  post: any;
+  post: PostDataType;
 }
 
 const SingleHeader: FC<SingleHeaderProps> = ({
@@ -20,13 +21,13 @@ const SingleHeader: FC<SingleHeaderProps> = ({
   className = "",
   post,
 }) => {
-  const { category, description, title, author } = post;
+  const { categories, description, title } = post;
 
   return (
     <>
       <div className={`nc-SingleHeader ${className}`}>
         <div className="space-y-5">
-          <CategoryBadgeList itemClass="!px-3" category={category} />
+          <CategoryBadgeList itemClass="!px-3" categories={categories} />
           <SingleTitle mainClass={titleMainClass} title={title} />
           {!hiddenDesc && (
             <span className="block pb-1 text-base text-neutral-500 md:text-lg dark:text-neutral-400">

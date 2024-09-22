@@ -1,13 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import ReactPlayer from "react-player";
-import parse, { domToReact } from "html-react-parser";
+// import ReactPlayer from "react-player";
+import parse from "html-react-parser";
 
-const SingleContentDemo = ({ post }) => {
-  const body = post.body;
-
+const SingleContentDemo = ({ post }: { post: any }) => {
   const options = {
-    replace: (domNode) => {
+    replace: (domNode: any) => {
       if (domNode.name === "img") {
         const { src, alt } = domNode.attribs;
         return <Image src={src} alt={alt} width={500} height={300} />;
@@ -22,7 +20,7 @@ const SingleContentDemo = ({ post }) => {
               height: 0,
             }}
           >
-            <ReactPlayer
+            {/* <ReactPlayer
               url={src}
               // playing={true}
               controls
@@ -30,14 +28,14 @@ const SingleContentDemo = ({ post }) => {
               width="80%"
               height="100%"
               style={{ position: "absolute", top: 0, left: 0 }}
-            />
+            /> */}
           </div>
         );
       }
     },
   };
 
-  return <div>{parse(body, options)}</div>;
+  return <div>{parse(post, options)}</div>;
 };
 
 export default SingleContentDemo;

@@ -11,11 +11,12 @@ import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import PostCardLikeAction from "@/components/PostCardLikeAction/PostCardLikeAction";
 import PostCardCommentBtn from "@/components/PostCardCommentBtn/PostCardCommentBtn";
 import { ArrowUpIcon } from "@heroicons/react/24/solid";
+import { PostDataType } from "@/data/types";
 
 const demoTags = DEMO_TAGS.filter((_, i) => i < 9);
 
 export interface SingleContentProps {
-  post: any;
+  post: PostDataType;
 }
 
 const SingleContent: FC<SingleContentProps> = ({ post }) => {
@@ -79,7 +80,7 @@ const SingleContent: FC<SingleContentProps> = ({ post }) => {
           className="prose lg:prose-lg !max-w-screen-md mx-auto dark:prose-invert"
           ref={contentRef}
         >
-          <SingleContentDemo post={post} />
+          <SingleContentDemo post={post.body} />
         </div>
 
         {/* TAGS */}

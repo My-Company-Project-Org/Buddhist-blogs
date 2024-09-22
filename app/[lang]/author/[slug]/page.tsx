@@ -38,48 +38,43 @@ const PageAuthor = async ({
     lang: string;
   };
 }) => {
-  // console.log(slug);
+  console.log(slug);
 
   const getAuthorDetails = async () => {
     try {
-      const authorDetails = await directus.items("post").readByQuery({
+      const authorDetails = await directus.items("directus_users").readByQuery({
         filter: {
           slug: {
             _eq: slug,
           },
         },
         fields: [
+          "id",
           "first_name",
           "last_name",
+          "displayName",
           "email",
+          "avatar",
           "bgImage",
-          "description",
+          "jobName",
+          "count",
           "slug",
-          "avatar.id",
-          "avatar.width",
-          "avatar.height",
-          "translations.*",
+          "description",
         ],
       });
 
-      if (
-        authorDetails &&
-        authorDetails.data &&
-        authorDetails.data.length > 0
-      ) {
-        return authorDetails.data[0];
-      } else {
-        throw new Error("Author details not found");
-      }
+      return authorDetails.data;
     } catch (error) {
       console.log(error);
       throw new Error("Error fetching authorDetails");
     }
   };
 
-  const authorData = await getAuthorDetails();
+  const authorData = (await getAuthorDetails()) || [];
 
   // console.log(authorData);
+
+  // title, category, date_created, slug, author ==> avatar,displayName
 
   const getAllPostsForAuthor = async () => {
     try {
@@ -92,13 +87,20 @@ const PageAuthor = async ({
           },
         },
         fields: [
-          "*",
+          "image",
+          "title",
+          "categories.category_id.*",
+          "date_created",
+          "slug",
+          "author.avatar",
           "author.displayName",
           "author.slug",
-          "author.avatar.id",
-          "category.title",
-          "category.slug",
-          "category.color",
+          // "author.displayName",
+          // "author.slug",
+          // "author.avatar.id",
+          // "category.title",
+          // "category.slug",
+          // "category.color",
         ],
       });
 
@@ -113,67 +115,68 @@ const PageAuthor = async ({
 
   //  const posts: PostDataType[] = DEMO_POSTS.filter((_, i) => i < 12);
 
-  // console.log(posts);
-
   return (
     <div className={`nc-PageAuthor `}>
       {/* HEADER */}
-      <div className="w-full">
-        <div className="relative w-full h-40 md:h-60 2xl:h-72">
-          <NcImage
-            alt=""
-            containerClassName="absolute inset-0"
-            sizes="(max-width: 1280px) 100vw, 1536px"
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${authorData.bgImage}`}
-            className="object-cover w-full h-full"
-            fill
-            priority
-          />
-        </div>
-        <div className="container -mt-10 lg:-mt-16">
-          <div className="relative bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 p-5 lg:p-8 rounded-3xl md:rounded-[40px] shadow-xl flex flex-col md:flex-row">
-            <div className="flex-shrink-0 w-32 mt-12 lg:w-40 sm:mt-0">
-              <div className="relative z-0 inline-flex items-center justify-center flex-shrink-0 w-20 h-20 overflow-hidden text-xl font-semibold uppercase rounded-full shadow-2xl wil-avatar text-neutral-100 lg:text-2xl lg:w-36 lg:h-36 ring-4 ring-white dark:ring-0">
-                <Image
-                  alt="Avatar"
-                  src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${authorData.avatar.id}`}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
-
-            {/*  */}
-            <div className="flex-grow pt-5 md:pt-1 lg:ml-6 xl:ml-12">
-              <div className="max-w-screen-sm space-y-3.5 ">
-                <h2 className="inline-flex items-center text-2xl font-semibold sm:text-3xl lg:text-4xl">
-                  <span>
-                    {authorData.first_name} {authorData.last_name}
-                  </span>
-                  <VerifyIcon
-                    className="ml-2"
-                    iconClass="w-6 h-6 sm:w-7 sm:h-7 xl:w-8 xl:h-8"
+      {authorData.map((item, index) => (
+        <div className="w-full">
+          <div className="relative w-full h-40 md:h-60 2xl:h-72">
+            <NcImage
+              alt=""
+              containerClassName="absolute inset-0"
+              sizes="(max-width: 1280px) 100vw, 1536px"
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${item.bgImage}`}
+              className="object-cover w-full h-full"
+              fill
+              priority
+            />
+          </div>
+          <div className="container -mt-10 lg:-mt-16">
+            <div className="relative bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 p-5 lg:p-8 rounded-3xl md:rounded-[40px] shadow-xl flex flex-col md:flex-row">
+              <div className="flex-shrink-0 w-32 mt-12 lg:w-40 sm:mt-0">
+                <div className="relative z-0 inline-flex items-center justify-center flex-shrink-0 w-20 h-20 overflow-hidden text-xl font-semibold uppercase rounded-full shadow-2xl wil-avatar text-neutral-100 lg:text-2xl lg:w-36 lg:h-36 ring-4 ring-white dark:ring-0">
+                  <Image
+                    alt="Avatar"
+                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${item.avatar}`}
+                    fill
+                    className="object-cover"
+                    priority
                   />
-                </h2>
-                <span className="block text-sm text-neutral-500 dark:text-neutral-400">
-                  {authorData.description}
-                </span>
-                <a
-                  href="#"
-                  className="flex items-center text-xs font-medium space-x-2.5 rtl:space-x-reverse cursor-pointer text-neutral-500 dark:text-neutral-400 truncate"
-                >
-                  {/* <GlobeAltIcon className="flex-shrink-0 w-4 h-4" /> */}
-                  {/* <span className="truncate text-neutral-700 dark:text-neutral-300">
+                </div>
+              </div>
+
+              {/*  */}
+              <div className="flex-grow pt-5 md:pt-1 lg:ml-6 xl:ml-12">
+                <div className="max-w-screen-sm space-y-3.5 ">
+                  <h2 className="inline-flex items-center text-2xl font-semibold sm:text-3xl lg:text-4xl">
+                    <span>
+                      {item.first_name} {item.last_name}
+                    </span>
+                    <VerifyIcon
+                      className="ml-2"
+                      iconClass="w-6 h-6 sm:w-7 sm:h-7 xl:w-8 xl:h-8"
+                    />
+                  </h2>
+                  <span className="block text-sm text-neutral-500 dark:text-neutral-400">
+                    {item.description}
+                  </span>
+                  <a
+                    href="#"
+                    className="flex items-center text-xs font-medium space-x-2.5 rtl:space-x-reverse cursor-pointer text-neutral-500 dark:text-neutral-400 truncate"
+                  >
+                    {/* <GlobeAltIcon className="flex-shrink-0 w-4 h-4" /> */}
+                    {/* <span className="truncate text-neutral-700 dark:text-neutral-300">
                     https://example.com/me
                   </span> */}
-                </a>
-                {/* <SocialsList itemClass="block w-7 h-7" /> */}
+                  </a>
+                  {/* <SocialsList itemClass="block w-7 h-7" /> */}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      ))}
+
       {/* ====================== END HEADER ====================== */}
 
       <div className="container py-16 space-y-16 lg:pb-28 lg:pt-20 lg:space-y-28">

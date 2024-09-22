@@ -8,6 +8,7 @@ import CategoryBadgeList from "@/components/CategoryBadgeList/CategoryBadgeList"
 import PostCardMeta from "@/components/PostCardMeta/PostCardMeta";
 import PostFeaturedMedia from "@/components/PostFeaturedMedia/PostFeaturedMedia";
 import Link from "next/link";
+import { format } from "date-fns";
 
 export interface Card11Props {
   className?: string;
@@ -23,9 +24,13 @@ const Card11: FC<Card11Props> = ({
   hiddenAuthor = false,
   ratio = "aspect-w-4 aspect-h-3",
 }) => {
-  const { title, category, date_created, slug } = post;
+  const { title, categories, date_created, slug } = post;
 
   const [isHover, setIsHover] = useState(false);
+
+  const formattedDate = format(new Date(date_created), "MMM d, yyyy");
+
+  const authorHref = { pathname: `/en/author/${slug}` };
 
   return (
     <div
@@ -41,16 +46,16 @@ const Card11: FC<Card11Props> = ({
           <PostFeaturedMedia post={post} isHover={isHover} />
         </div>
       </div>
-      <Link href={`/en/post/${slug}`} className="absolute inset-0"></Link>
+      <Link href={authorHref} className="absolute inset-0"></Link>
       <span className="absolute z-10 top-3 inset-x-3">
-        <CategoryBadgeList category={category} />
+        <CategoryBadgeList categories={categories} />
       </span>
 
       <div className="flex flex-col p-4 space-y-3">
         {!hiddenAuthor ? (
           <PostCardMeta meta={post} />
         ) : (
-          <span className="text-xs text-neutral-500">{date_created}</span>
+          <span className="text-xs text-neutral-500">{formattedDate}</span>
         )}
         <h3 className="block text-base font-semibold nc-card-title text-neutral-900 dark:text-neutral-100">
           <span className="line-clamp-2" title={title}>

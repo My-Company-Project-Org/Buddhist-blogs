@@ -19,15 +19,16 @@ const PostCardMeta: FC<PostCardMetaProps> = ({
 }) => {
   const { date_created, author } = meta;
 
-  // Format the date using date-fns
   const formattedDate = format(new Date(date_created), "MMM d, yyyy");
+
+  const authorHref = { pathname: `/en/author/${author.slug}` };
 
   return (
     <div
       className={`nc-PostCardMeta inline-flex items-center flex-wrap text-neutral-800 dark:text-neutral-200 ${className}`}
     >
       <Link
-        href={`/en/author/${author.slug}`}
+        href={authorHref}
         className="relative flex items-center space-x-2 rtl:space-x-reverse"
       >
         {!hiddenAvatar && (
@@ -43,7 +44,9 @@ const PostCardMeta: FC<PostCardMetaProps> = ({
         </span>
       </Link>
       <>
-        <span className="text-neutral-500 dark:text-neutral-400 mx-[6px] font-medium"></span>
+        <span className="text-neutral-500 dark:text-neutral-400 mx-[6px] font-medium">
+          ·
+        </span>
         <span className="font-normal text-neutral-500 dark:text-neutral-400">
           {formattedDate}
         </span>

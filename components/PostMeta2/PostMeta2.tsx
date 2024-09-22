@@ -3,6 +3,7 @@ import Avatar from "@/components/Avatar/Avatar";
 import { PostDataType } from "@/data/types";
 // import { DEMO_POSTS } from "@/data/posts";
 import Link from "next/link";
+import { format } from "date-fns";
 
 // const metaDemo: PostMeta2Props["meta"] = DEMO_POSTS[0];
 
@@ -21,7 +22,14 @@ const PostMeta2: FC<PostMeta2Props> = ({
   size = "normal",
   avatarRounded,
 }) => {
-  const { date, author, categories, readingTime } = post;
+  const { date_created, author, categories, readingTime } = post;
+
+  const authorHref = { pathname: `/en/author/${author.slug}` };
+
+  const formattedDate = format(new Date(date_created), "MMM d, yyyy");
+
+  const authorImg = author.avatar;
+
   return (
     <div
       className={`nc-PostMeta2 flex items-center flex-wrap text-neutral-700 text-left dark:text-neutral-200 ${
@@ -29,7 +37,7 @@ const PostMeta2: FC<PostMeta2Props> = ({
       } ${className}`}
     >
       <Link
-        href={`/en/author/${author.slug}`}
+        href={authorHref}
         className="flex items-center space-x-2 rtl:space-x-reverse"
       >
         <Avatar
@@ -39,16 +47,13 @@ const PostMeta2: FC<PostMeta2Props> = ({
               ? "h-6 w-6 text-sm"
               : "h-10 w-10 sm:h-11 sm:w-11 text-xl"
           }
-          imgUrl={author.avatar}
+          imgUrl={authorImg.id}
           userName={author.displayName}
         />
       </Link>
       <div className="ms-3">
         <div className="flex items-center">
-          <Link
-            href={`/en/author/${author.slug}`}
-            className="block font-semibold"
-          >
+          <Link href={authorHref} className="block font-semibold">
             {author.displayName}
           </Link>
 
@@ -69,7 +74,7 @@ const PostMeta2: FC<PostMeta2Props> = ({
         </div>
         <div className="text-xs mt-[6px]">
           <span className="text-neutral-700 dark:text-neutral-300">
-            Pending Date
+            {formattedDate}
           </span>
           <span className="mx-2 font-semibold">·</span>
           <span className="text-neutral-700 dark:text-neutral-300">

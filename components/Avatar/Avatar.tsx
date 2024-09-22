@@ -47,7 +47,7 @@ const Avatar: FC<AvatarProps> = ({
           fill
           sizes="100px"
           className="absolute inset-0 object-cover w-full h-full"
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${url.id}`}
+          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${url}`}
           alt={name}
         />
       )}
